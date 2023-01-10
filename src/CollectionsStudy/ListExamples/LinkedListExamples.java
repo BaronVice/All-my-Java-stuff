@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-/** Для add в конец и get элементов лучше пльзоваться ArrayList
+/** Для add в конец и get элементов лучше пользоваться ArrayList
  * Для добавления в середину/начало и удаления лучше использовать LinkedList */
 
 public class LinkedListExamples {

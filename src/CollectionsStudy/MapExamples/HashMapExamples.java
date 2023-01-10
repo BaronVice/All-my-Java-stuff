@@ -13,7 +13,6 @@ public class HashMapExamples {
         map.put("X", 10);
 
         // Ключи перезаписываются
-
         System.out.println(map);
         // null если ключ не существует
         System.out.println(map.get("X"));

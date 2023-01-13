@@ -1,5 +1,7 @@
 package CollectionsStudy.ComparatorAndComparable;
 
+import lombok.Data;
+
 import java.util.*;
 
 /** Чтобы объекты класса можно было сравнивать/сортировать, они должны реализовывать интерфейс Comparable */
@@ -37,6 +39,11 @@ record Person(int id, String name) implements Comparable<Person> {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
     }
 
     @Override

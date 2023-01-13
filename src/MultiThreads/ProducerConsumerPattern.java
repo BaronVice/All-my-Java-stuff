@@ -36,7 +36,7 @@ public class ProducerConsumerPattern {
 
         while (true){
             Thread.sleep(500);
-            // put в отличие от offer может подождать элемента
+            // put в отличие от offer может подождать элемент
             queue.put(random.nextInt(1000));
         }
     }

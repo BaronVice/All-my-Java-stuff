@@ -32,8 +32,8 @@ class Runner implements Runnable {
         System.out.println("""
                 I am a Runner created with Runnable
                 My realization is better:
-                1) can implement other interfaces
-                2) still able to extend some class
+                1) Implementer can implement other interfaces
+                2) Implementer still able to extend some class
                 """);
     }
 }

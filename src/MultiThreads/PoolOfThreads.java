@@ -9,14 +9,15 @@ public class PoolOfThreads {
         // Пул из двух потоков
         ExecutorService executorService = Executors.newFixedThreadPool(3);
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 100; i++)
             // Задаем потокам работу
             executorService.submit(new Worker(i));
 
         // Начинаем исполнение заданий
         executorService.shutdown();
         // Ждем завершения выполнения
-        executorService.awaitTermination(1, TimeUnit.DAYS);
+        executorService.awaitTermination(5, TimeUnit.SECONDS);
+        System.out.println("Damn it is slow");
     }
 }
 
@@ -31,7 +32,7 @@ class Worker implements Runnable {
     @Override
     public void run() {
         try {
-            Thread.sleep(500);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

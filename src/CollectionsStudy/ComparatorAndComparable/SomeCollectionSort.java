@@ -19,16 +19,16 @@ public class SomeCollectionSort {
 
 class lastLetterCompare implements Comparator<String>{
 
-    private static char lastChar(String s){
+    private static char getLastCharacter(String s){
         return s.toCharArray()[s.length() - 1];
     }
 
     @Override
     public int compare(String o1, String o2) {
-        if (lastChar(o1) == lastChar(o2))
+        if (getLastCharacter(o1) == getLastCharacter(o2))
             return 0;
 
-        return lastChar(o1) > lastChar(o2) ? 1 : -1;
+        return getLastCharacter(o1) > getLastCharacter(o2) ? 1 : -1;
     }
 }
 

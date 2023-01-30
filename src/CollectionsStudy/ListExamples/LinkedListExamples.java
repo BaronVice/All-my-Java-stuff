@@ -39,7 +39,4 @@ public class LinkedListExamples {
         System.out.println(end - start);
     }
 
-    public static void linkedListFunctional(){
-
-    }
 }

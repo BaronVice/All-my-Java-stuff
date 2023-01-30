@@ -25,10 +25,7 @@ class lastLetterCompare implements Comparator<String>{
 
     @Override
     public int compare(String o1, String o2) {
-        if (getLastCharacter(o1) == getLastCharacter(o2))
-            return 0;
-
-        return getLastCharacter(o1) > getLastCharacter(o2) ? 1 : -1;
+        return getLastCharacter(o1) - getLastCharacter(o2);
     }
 }
 

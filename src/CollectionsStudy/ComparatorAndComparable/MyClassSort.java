@@ -56,9 +56,6 @@ record Person(int id, String name) implements Comparable<Person> {
 
     @Override
     public int compareTo(Person o) {
-        if (this.id == o.id())
-            return 0;
-
-        return this.id > o.id() ? 1 : -1;
+        return this.id - o.id();
     }
 }

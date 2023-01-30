@@ -32,17 +32,25 @@ class ReentrantLockTest {
 
     private void addRandomIntToFirstList() {
         if (firstListLock.tryLock()){
-            firstListLock.lock();
-            addRandomIntToList(firstList);
-            firstListLock.unlock();
+            try{
+                firstListLock.lock();
+                addRandomIntToList(firstList);
+            }
+            finally {
+                firstListLock.unlock();
+            }
         }
     }
 
     private void addRandomIntToSecondList() {
         if (secondListLock.tryLock()){
-            secondListLock.lock();
-            addRandomIntToList(secondList);
-            secondListLock.unlock();
+            try{
+                secondListLock.lock();
+                addRandomIntToList(secondList);
+            }
+            finally {
+                secondListLock.unlock();
+            }
         }
     }
 

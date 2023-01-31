@@ -1,0 +1,32 @@
+Main goal of multithreading - create some functionality like complete complex tasks in background mod,
+data download, web-services stuff etc.
+
+Thread will be terminated after end line and termination of inheritor threads
+
+Volatile - if one variable is used between some threads you may use it (slow, but safer)
+
+Threads are not synchronized (race condition). In that case you have to synchronize threads on
+object monitor or alternatively on locks.
+
+wait() is needed to delay current thread execution,
+notify() will awake thread that was suspended by wait()
+(alternatively with locks there is Condition class that is attached to lock,
+for condition wait() is await(), notify() is signal())
+
+Instead of creating threads separately you may want to use pool of threads (ExecutorService, which
+is also thread-safe (like others in java.util.concurrent)
+
+InterruptedException is raised when you interrupt thread. In that case you have to handle, what should
+be done after it is interrupted (thread-safe as not killed immediately, but wait until executed).
+
+CountDownLatch(n) may be used with .await() until n iterations are done
+
+Semaphore set a limit on permissions for execution
+(.acquire() to take permission, .release() to give back, useful when source has limited throughput)
+
+Callable and Future just like Runnable, but they allow us to return results
+(Callable for return, Future gives access to result)
+
+Deadlock appears when you lock in different order. In that case you want to take locks in other place.
+
+Don't forget release locks and permissions inside finally as exceptions may happen

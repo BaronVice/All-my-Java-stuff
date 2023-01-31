@@ -1,0 +1,10 @@
+Synchronized:
+Applicable only for methods and blocks.
+Use it when multiple threads are operating on the same object.
+Disadvantage is the waiting time of the thread
+
+Volatile:
+Variables only
+JVM (Java Virtual Machine) creates separate local copy. Every modification performed by thread will take
+place on this local copy. Still, creating separate copy for every thread creates performance problem.
+

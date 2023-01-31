@@ -1,0 +1,3 @@
+Comparable is capable of comparing itself with another object. (creating natural ordering)
+Comparator is a separate class more useful for different compare. (creating special compartment)
+return -1, 0, 1

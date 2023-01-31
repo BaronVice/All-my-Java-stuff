@@ -1,0 +1,8 @@
+Abstract class - class you can't instantiate (make sense when it's not right to instantiate something undefined)
+Abstract class may have any sort of methods (expect private abstract, as it has no sense)
+Abstract class enforce and organize what every subclass must have
+
+Difference between Abstract class and interface:
+1) Every interface method is abstract
+2) Class may implement any number of interfaces, but extend only one class
+3) Every interface field static and final (so you have instantiate it)

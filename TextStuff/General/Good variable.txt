@@ -1,0 +1,7 @@
+Should describe what it contains and context for what it is used
+Package name should be all lowercase
+Constants should be all uppercase with underscores
+Class variables should be nouns (catWeight, maxHealth etc.)
+Method name should be a verb or a verb phrase (say what it does and maybe does for what)
+A perfect method name tells what it does without looking in it
+Better long name which tells every detail than short name that miss something important

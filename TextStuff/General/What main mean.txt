@@ -1,0 +1,7 @@
+Runtime environment has to call main method to trigger program to run
+
+public because it must be called somehow
+static to call program without declaring redundant stuff
+void is return type - we don't need return anything
+main - trigger word
+String[] args - just arguments we can send to main from somewhere

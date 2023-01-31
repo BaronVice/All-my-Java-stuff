@@ -1,0 +1,2 @@
+Fair lock - Equal chance for all threads, but slower
+Unfair lock - faster (more throughput), but possible thread starvation

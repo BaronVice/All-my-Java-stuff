@@ -5,4 +5,4 @@ Abstract class enforce and organize what every subclass must have
 Difference between Abstract class and interface:
 1) Every interface method is abstract
 2) Class may implement any number of interfaces, but extend only one class
-3) Every interface field static and final (so you have instantiate it)
+3) Every interface field static and final (so you have instantiated it)

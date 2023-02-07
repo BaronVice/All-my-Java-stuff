@@ -14,7 +14,7 @@ notify() will awake thread that was suspended by wait()
 for condition wait() is await(), notify() is signal())
 
 Instead of creating threads separately you may want to use pool of threads (ExecutorService, which
-is also thread-safe (like others in java.util.concurrent)
+is also thread-safe (like others in java.util.concurrent))
 
 InterruptedException is raised when you interrupt thread. In that case you have to handle, what should
 be done after it is interrupted (thread-safe as not killed immediately, but wait until executed).

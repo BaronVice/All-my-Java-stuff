@@ -26,9 +26,8 @@ public class SemaphoreExample {
             executorService.submit(Connection.getConnection()::takeAccess);
 
         executorService.shutdown();
-        executorService.awaitTermination(5, TimeUnit.SECONDS);
-
-        System.out.println("Hey");
+        boolean doneInTime = executorService.awaitTermination(40, TimeUnit.SECONDS);
+        System.out.println(doneInTime ? "All cool" : "Damn it's slow");
     }
 }
 

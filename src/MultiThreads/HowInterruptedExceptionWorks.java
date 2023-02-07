@@ -27,7 +27,7 @@ public class HowInterruptedExceptionWorks {
                 System.out.println("I was sleeping you smart boy");
                 break;
             }
-            Math.sin(random.nextDouble());
+            System.out.println(Math.sin(random.nextDouble()));
         }
     }
 }

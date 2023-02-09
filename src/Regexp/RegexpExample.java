@@ -3,12 +3,15 @@ package Regexp;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.Arrays.asList;
+
 public class RegexpExample {
     public static void main(String[] args) {
         /*
         \\d - one digit
         \\w - one letter
         \\w equals [a-zA-z]
+        \\s - white-space
 
         + - 1 or more
         * - 0 or more
@@ -26,12 +29,9 @@ public class RegexpExample {
         [^a-zA-z]{2, 6} - from 2 to 6 symbols, which not include eng letters
          */
 
-        String a = "-1234";
-        String b = "321";
-        String c = "+890";
-        System.out.println(a.matches("[+-]?\\d+"));
-        System.out.println(b.matches("[+-]?\\d+"));
-        System.out.println(c.matches("[+-]?\\d+"));
+        List<String> toCheck = new ArrayList<>(asList("-1234", "321", "+890", "213.456", "212.",
+                                                      ".123", "0.0", "32..12", "1234.,32", "1,,5", "4,.1"));
+        toCheck.forEach(RegexpExample::checkIfNumber);
 
         String d = "ABOBA1337";
         System.out.println(d.matches("[a-zA-z731]+"));
@@ -52,5 +52,12 @@ public class RegexpExample {
         String line = "W1h2o m3e4s5s6e7d8 9w0i2th3 m1y32 1l3i4n5e6?";
         line = line.replaceAll("\\d+", "");
         System.out.println(line);
+    }
+    public static void checkIfNumber(String s){
+        System.out.printf("%s is %sa number\n", s, isNumber(s) ? "" : "not ");
+    }
+
+    public static boolean isNumber(String s){
+        return s.matches("[-+]?\\d+(([.,])\\d+)?");
     }
 }

@@ -1,0 +1,13 @@
+In big projects we have to handle a lot of dependencies. There are two build formats for
+java projects: .jar and .war. Sure we can handle dependencies, create project structure and compile
+it manually. But there is a better solution - Apache Maven
+
+Artifact - library or project which we can connect to our project
+Dependency - outsource library
+Apache Maven - tool for building projects and handling dependencies
+
+Difference between java and maven projects - maven has specific structure and pom file where
+we can handle dependencies (which maven automatically will connect to our project) and
+project configuration (to .jar or .war)
+
+Archetype - structure template

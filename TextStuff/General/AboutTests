@@ -1,0 +1,20 @@
+Test case - artifact which describes steps and conditions, that are needed for testing some functionality
+Test case: Action -> Expected result -> Test result
+Example: Open page "login" -> Login page is opened -> Test passed
+
+Testing levels:
+1) Module test - testing specified modules like classes and methods (that what developers are usually do)
+2) Integration test - if modules are compatible
+3) System test - testing the whole project (that what testers are usually do)
+
+What is test capable for?
+1) Recreating some data / precompile some actions
+2) Runs test method and send its result
+3) Compare result and what was expected (this process is called assert).
+Then it's either "Test passed" or "Test failed" (often it just throws AssertionError)
+
+Why is it needed?
+1) Make sure we develop modules for specific purpose (there is also paradigm called Test Driven Development)
+So tests before code, as we want our program to match every clients requirement
+2) Less errors and bugs after bringing new features
+3) Test shows specifications (again, Test Driven Development)

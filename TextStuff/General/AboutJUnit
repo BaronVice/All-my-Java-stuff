@@ -1,0 +1,23 @@
+1) Every test case is a separate method, which should be annotated as @Test
+2) @Before -
+   @BeforeClass -
+   @After -
+   @AfterClass -
+3) Test class name should end with "Test" (example: "Vector2DTest")
+4) It is recommended to name test methods with "should" (example: "sumShouldBePositive")
+
+What @Test do:
+- Defines method (which must be public void) as a test method
+What parameters could be used with @Test?
+1) expected - when we want to check for some throwing exception (so this exception is expected)
+2) timeout - we may make some time bound for test execution (if exceeded, then test is failed)
+
+
+org.junit.Assert (is a check for "expected"/"actual")
+Methods:
+assertTrue() - if method returned True
+assertFalse() - if method returned False
+assertEquals() - if expected is equal to actual
+assertArrayEquals() - same as above, but for arrays
+assertNotEquals() - if expected is not equal to actual
+fail() - auto fail

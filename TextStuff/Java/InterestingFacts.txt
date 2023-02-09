@@ -1,1 +1,2 @@
 Max len of var name - 65535
+Formats of built projects: .jar and .war

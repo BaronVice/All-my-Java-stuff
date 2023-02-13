@@ -16,5 +16,5 @@ Then it's either "Test passed" or "Test failed" (often it just throws AssertionE
 Why is it needed?
 1) Make sure we develop modules for specific purpose (there is also paradigm called Test Driven Development)
 So tests before code, as we want our program to match every clients requirement
-2) Less errors and bugs after bringing new features
+2) Preventing errors and bugs after bringing new features
 3) Test shows specifications (again, Test Driven Development)

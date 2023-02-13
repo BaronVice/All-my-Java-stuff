@@ -1,16 +1,28 @@
 1) Every test case is a separate method, which should be annotated as @Test
-2) @Before -
-   @BeforeClass -
-   @After -
-   @AfterClass -
+2) @Before - launch annotated stuff before every test
+   @BeforeClass - same but only once and before all tests (static)
+   @After - launch annotated stuff after every test
+   @AfterClass - same but only once and after all tests (static)
+
+   Before is cool to prepare some data for tests (load DB or something)
+   After is fine for post-test tasks (close connections, clear resources)
+
 3) Test class name should end with "Test" (example: "Vector2DTest")
 4) It is recommended to name test methods with "should" (example: "sumShouldBePositive")
 
-What @Test do:
+What @Test does:
 - Defines method (which must be public void) as a test method
 What parameters could be used with @Test?
-1) expected - when we want to check for some throwing exception (so this exception is expected)
-2) timeout - we may make some time bound for test execution (if exceeded, then test is failed)
+1) expected - when we want to check for some throwing exception (so we wait exception to be thrown)
+2) timeout - we creating time bound for test execution (if exceeded, then test is failed)
+
+Life cycle of Test class:
+1) @BeforeClass
+- For each @Test method
+    1. @Before
+    2. @Test
+    3. @After
+2) @AfterClass
 
 
 org.junit.Assert (is a check for "expected"/"actual")
@@ -21,3 +33,8 @@ assertEquals() - if expected is equal to actual
 assertArrayEquals() - same as above, but for arrays
 assertNotEquals() - if expected is not equal to actual
 fail() - auto fail
+
+Instead of Assert we can use Assume (only difference - instead of failed test it is ignored)
+
+More of annotations:
+@Ignore - may be used if we want to ignore test (not really recommended as possible to forget it)

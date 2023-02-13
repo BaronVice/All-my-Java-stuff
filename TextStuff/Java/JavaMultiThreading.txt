@@ -17,7 +17,7 @@ Instead of creating threads separately you may want to use pool of threads (Exec
 is also thread-safe (like others in java.util.concurrent))
 
 InterruptedException is raised when you interrupt thread. In that case you have to handle, what should
-be done after it is interrupted (thread-safe as not killed immediately, but wait until executed).
+be done after it is interrupted (thread-safe as not killed immediately, but waited to be executed).
 
 CountDownLatch(n) may be used with .await() until n iterations are done
 

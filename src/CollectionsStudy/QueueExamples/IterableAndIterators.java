@@ -1,20 +1,17 @@
 package CollectionsStudy.QueueExamples;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /** Iterable дает понять, что объект - коллекция, по которой можно проходить */
 public class IterableAndIterators {
     public static void main(String[] args) {
         List<Integer> list = new LinkedList<>();
-        for (int i = 1; i < 6; i++)
+        for (int i = 1; i < 20; i++)
             list.add(i);
 
         // Before Java 5
         // Однако с итератором можно удалять/добавлять элементы
-        Iterator<Integer> iterator = list.listIterator();
+        ListIterator<Integer> iterator = list.listIterator();
 
         int id = 0;
         while (iterator.hasNext()) {
@@ -22,6 +19,8 @@ public class IterableAndIterators {
 
             if (id % 2 == 0)
                 iterator.remove();
+            if (id % 5 == 0)
+                iterator.add(228);
 
             id++;
         }

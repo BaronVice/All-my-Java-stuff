@@ -12,7 +12,7 @@ public class PatternAndMatcher {
                 Some body once told me the world is gonna roll me,
                 I ain't the toni.sas.228@mail.ru in a shed.
                 She was looking kinda big.bobba.1337@mail.ru
-                In the shape of an "L" on her b.vice@mail.ru
+                In the shape of an "L" on her b.vice@gmail.com
                 """;
 
         // Factory class - can't really create its objects, since no constructor in here.

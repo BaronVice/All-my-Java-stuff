@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 /** Lambda - is a way to give some piece of code to method.
- * Also, they allow us use stuff without creating any classes
+ * Also, they allow us to use stuff without creating any classes
  * After Java 8, anywhere we had to provide implementation of interface with only one method
  * It's possible to replace it with lambda expression. So, instead of passing an object, that implements method
  * we actually may pass specific implementation we want to use.
@@ -45,7 +45,7 @@ public class LambdaExpressions {
     }
 
     public static void printThing(Printable statement, String pref, String suf){
-        statement.print(pref, suf);
+        System.out.println(statement.print(pref, suf));
     }
 
     public static void thirdExample(){

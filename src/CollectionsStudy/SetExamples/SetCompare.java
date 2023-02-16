@@ -62,7 +62,7 @@ public class SetCompare {
 
     public static void fillStringSet(Set<String> set){
         String s = "Some body once told me the world is gonna roll   me.";
-        set.addAll(Arrays.asList(s.split("[ .,]+")));
+        set.addAll(Arrays.asList(s.split("[\\s.,]+")));
     }
 }
 

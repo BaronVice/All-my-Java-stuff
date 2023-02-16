@@ -5,7 +5,7 @@ import java.util.*;
 public class SomeCollectionSort {
     public static void main(String[] args) {
         String s = "somebody once told me, the world is gonna roll me.";
-        List<String> words = new ArrayList<>(List.of(s.split("[ ,.]+")));
+        List<String> words = new ArrayList<>(List.of(s.split("[\\s,.]+")));
 
         System.out.println(words);
 

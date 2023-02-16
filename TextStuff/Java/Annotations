@@ -1,0 +1,28 @@
+It's a special comment type that allows:
+1) Send some instructions to Java compiler
+2) Send some instructions for code-analyzers (e.g. tools for generating docs from code source)
+3) Send metadata, which could be used by Java app (Java reflection) or other apps or frameworks (Spring)
+
+Metadata - data about data (??)
+Metadata doesn't affect on application workability, but while compile
+they could be used by other programs to adjust their work.
+- Metadata examples:
+1) Java annotations give us extra info about code
+2) HTML <meta> tag to store data about page, which is used by browsers and search systems (e.g. key words)
+
+What things could be annotated?
+The answer is a lot of stuff: classes, methods, fields and etc.
+Still, one annotations should be applied to one or rarely two entities.
+
+@Override - if we will somehow change the name of superclass method, then without annotation we wouldn't see an error
+inside subclass method, Java will think that it's new subclass method. But after applying override we'll make sure it
+won't happen.
+@Deprecated - deprecated warns, that used method is old and you should replace it with something else
+@SuppressWarnings - used to ignore warnings
+
+Annotations to annotate annotations:
+@Target - bounds implementation (FIELD - field; METHOD - method; TYPE - class, interface, enum)
+@Retention - policy to hold annotation (last step of compilation or execution it could be scoped):
+1) SOURCE - thrown during compilation. Scoped only inside code source.
+2) CLASS - saved in byte-code, but not available during execution
+3) RUNTIME - saved in byte-code and available during execution (due to reflection)

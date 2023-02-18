@@ -1,5 +1,8 @@
 package InheritExample;
 
+import AnnotationsStuff.ClassInfo;
+
+@ClassInfo(creationDate = 2023, purpose = "To show Inheritance")
 public class Animal {
     // Vars
     protected String name;

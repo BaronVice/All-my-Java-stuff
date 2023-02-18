@@ -1,4 +1,4 @@
-package AnnotatioinsStuff;
+package AnnotationsStuff;
 
 /** When we want to create our own annotations?
  * - If we implement code source analyzer to send extra info (metadata)

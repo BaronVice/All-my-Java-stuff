@@ -3,7 +3,7 @@ data download, web-services stuff etc.
 
 Thread will be terminated after end line and termination of inheritor threads
 
-Volatile - if one variable is used between some threads you may use it
+Volatile - if one variable is used between some threads you may want to apply it (unless there is synchronized block)
 
 Threads are not synchronized (race condition). In that case you have to synchronize threads on
 object monitor or alternatively on locks.

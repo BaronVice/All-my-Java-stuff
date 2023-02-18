@@ -11,9 +11,10 @@ they could be used by other programs to adjust their work.
 2) HTML <meta> tag to store data about page, which is used by browsers and search systems (e.g. key words)
 
 What things could be annotated?
-The answer is a lot of stuff: classes, methods, fields and etc.
-Still, one annotations should be applied to one or rarely two entities.
+The answer is a lot of stuff: classes, methods, fields and etc. (full list in java.lang.annotation.ElementType)
+Still, one annotation should be applied to one or rarely two entities.
 
+Most used:
 @Override - if we will somehow change the name of superclass method, then without annotation we wouldn't see an error
 inside subclass method, Java will think that it's new subclass method. But after applying override we'll make sure it
 won't happen.

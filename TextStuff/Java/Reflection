@@ -1,0 +1,45 @@
+Every class has:
+- name
+- packageName
+- listOfAttributes
+- listOfMethods
+- ...
+
+So, something like...
+
+class Class {
+    String name;
+    String packageName;
+    List<Attribute> attributes;
+    List<Method> methods;
+    ...
+}
+
+So each class we create could be handled as object of Class.
+It means some human is an object of Person, and Person is an object of Class class.
+Objects of Class are specific classes with their own name, methods, attributes, ...
+
+Again, each created class could be handled as object of Class.
+Hence, all of OOP tools may be applied to classes just like we did it with entities.
+(So class is also an object of Class class and we can manipulate it just like we did it with normal objects)
+- And this what is called a reflection.
+
+About Class class:
+Class - is a utility class. Its instances (Java classes) store specific information about specific class.
+Class is already implemented in Java Reflection API.
+We can get access to Class with:
+1) Class c = MyClass.class
+2) Class c = obj.getClass();
+3) Class c = Class.forName("package_path.MyClass")
+
+Reflection considers with scope, so it will return only public objects.
+But visibility can be ignored if we get them with methods, which contain "Declared".
+
+With Class we also can:
+1) Create new class objects - newInstance() (also could be called on constructors)
+2) Get method by its signature - getMethod()
+3) Get constructor by its signature - getConstructor()
+
+And so with Method:
+1) call methods - invoke()
+2) etc.

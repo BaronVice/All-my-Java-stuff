@@ -1,11 +1,11 @@
 1) Every test case is a separate method, which should be annotated as @Test
-2) @Before - launch annotated stuff before every test
+2) @Before - launch annotated method before every test
    @BeforeClass - same but only once and before all tests (static)
-   @After - launch annotated stuff after every test
+   @After - launch annotated method after every test
    @AfterClass - same but only once and after all tests (static)
 
-   Before is cool to prepare some data for tests (load DB or something)
-   After is fine for post-test tasks (close connections, clear resources)
+   @Before is cool to prepare some data for tests (load DB or something)
+   @After is fine for post-test tasks (close connections, clear resources)
 
 3) Test class name should end with "Test" (example: "Vector2DTest")
 4) It is recommended to name test methods with "should" (example: "sumShouldBePositive")
@@ -20,7 +20,7 @@ Life cycle of Test class:
 1) @BeforeClass
 - For each @Test method
     1. @Before
-    2. @Test
+    2. Test launch
     3. @After
 2) @AfterClass
 

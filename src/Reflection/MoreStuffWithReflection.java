@@ -4,7 +4,6 @@ import AnnotationsStuff.MailValidator;
 import lombok.SneakyThrows;
 
 import java.lang.reflect.Method;
-import java.util.Objects;
 import java.util.Scanner;
 
 /** Magic time: reading class names from console and then with reflection we'll create their objects
@@ -26,7 +25,6 @@ public class MoreStuffWithReflection {
         // 2) Get any method even if its private - getDeclaredMethod()
         // 3) Get method from local or anonymous class - getEnclosingMethod()
         Method method = firstObj.getMethod(methodName, secondObj);
-        String a = "1";
         // Now this will happen:
         Object obj1 = firstObj.getConstructor().newInstance();
         Object obj2 = secondObj.getConstructor(String.class).newInstance("random.mail.123@gmail.com");

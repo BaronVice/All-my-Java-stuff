@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class ReflectionExample {
     @SneakyThrows
     public static void main(String[] args) {
-        Class someClass = Class.forName("InheritExample.Animal");
+        Class<?> someClass = Class.forName("InheritExample.Animal");
 
         // How to get all class methods:
         for (Method method : someClass.getDeclaredMethods()) {

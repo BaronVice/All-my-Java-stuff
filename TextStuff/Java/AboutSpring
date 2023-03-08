@@ -1,0 +1,24 @@
+Framework - platform that determines application structure, makes component development and integration easier
+Spring is:
+1) One of the most popular web-frameworks in the world
+2) Most popular Java framework
+3) Spring is used almost wherever Java used
+
+Components:
+1) Application Context & Dependency Injection
+Java app - is a set of Java objects, which communicate with each other;
+More complex app - more connections and dependencies becomes between objects.
+Objects could be deleted/added in app while it's running. A lot of dependencies may be changed.
+So Spring helps us to work with all of these connections.
+- Application Context - Spring creates needed objects and handle them itself.
+Created objects are stored inside Application Context.
+- Dependency Injection - Spring create objects connection on his own. We just need to describe them.
+
+2) More effective access to DB
+- Provides a wide choice of tools to communicate with DB
+3) Spring MVC - Java web-application component
+- Allow to create Web-app
+- Huge part Internet Web-apps are working on Spring MVC
+- Also used as backend-API for mobile apps
+4) And other useful components spring.io (Spring Security, Spring Boot, Spring Webflow, ...
+

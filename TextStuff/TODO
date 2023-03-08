@@ -2,3 +2,4 @@
 - Read about varargs
 - Method isSynthetic, isBridge, isDefault, isVarArgs (optional)
 - Try to create something like delegate from reflection
+- Learn some basic patterns

@@ -1,0 +1,31 @@
+It's about dependencies injection and levels of dependencies.
+Problem: strong dependency.
+Solution: use SOLID (more precise - dependency inversion).
+
+But there is another problem: we have to create objects manually
+We want to handle them with configuration file and not modify it.
+Solution: Spring Framework will automatically create needed objects (!!!BEANS!!!)
+as they described inside configuration file.
+
+New problem appends: object cannot create its own dependencies (its architecturally wrong)
+Solution: use IoC principle
+
+Bruh, we just inject dependency as constructor argument, that's all
+Something like this:
+
+class MusicPlayer(){
+    private Music music;
+
+    public MusicPlayer(Music music){
+        this.music = music;
+    }
+
+    public void play(){
+        ...
+    }
+
+}
+
+The last problem: object we want to inject should be created somewhere
+
+MusicPlayer mp = new MusicPlayer(new Rock()); -

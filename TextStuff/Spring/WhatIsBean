@@ -1,0 +1,2 @@
+Bean - is just a Java object, but created by Spring
+They are created from Java classes (just like usual objects)

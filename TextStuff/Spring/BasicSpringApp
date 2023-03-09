@@ -1,0 +1,15 @@
+Needed dependencies:
+1) Spring core - literally application core
+2) Spring beans - configuration framework and basic functionality to handle java objects
+3) Spring context - allows get access to configured objects (context)
+
+Package is the same as groupId.
+.xml - allows to describe app configuration. Spring will read it and create bean (something like object)
+xml stuff inside it is needed to use Spring framework.
+Most important stuff here are beans:
+id - unique identifier
+class - root of this bean
+value - value given to bean's constructor
+
+ClassPathXmlApplicationContext - Standalone XML application context, taking the context definition files from
+the class path, interpreting plain paths as class path resource names that include the package path

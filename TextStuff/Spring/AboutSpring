@@ -13,7 +13,6 @@ So Spring helps us to work with all of these connections.
 - Application Context - Spring creates needed objects and handle them itself.
 Created objects are stored inside Application Context.
 - Dependency Injection - Spring create objects connection on his own. We just need to describe them.
-
 2) More effective access to DB
 - Provides a wide choice of tools to communicate with DB
 3) Spring MVC - Java web-application component
@@ -21,4 +20,9 @@ Created objects are stored inside Application Context.
 - Huge part Internet Web-apps are working on Spring MVC
 - Also used as backend-API for mobile apps
 4) And other useful components spring.io (Spring Security, Spring Boot, Spring Webflow, ...
+
+How to configure Spring:
+1) XML config file (old approach)
+2) Java annotations and a bit of XML (modern)
+3) All from Java code (also modern)
 

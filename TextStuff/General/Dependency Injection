@@ -1,0 +1,52 @@
+Its about relations between objects
+
+
+// This is bad as there might be more of products (we don't want to modify)
+public class Chef {
+    private Food burger;
+
+    public Chef(){
+        burger = new Burger();
+    }
+    ...
+}
+
+// That's how you supposed to write it
+public class Chef {
+    private Food food;
+
+    public Chef(Food food){
+        this.food = food;
+    }
+    ...
+}
+
+It is called dependency injection - it was injected into the object instead of been created inside of it.
+First example is hard-dependency - it cannot be used and tested independently from class
+
+There are three types of injection:
+1) Constructor injection - dependencies provided through class constructor (from second example). This type
+of injection is most recommended.
+2) Setter injection - obviously, from setter:
+public class Chef {
+    private Food food;
+    ...
+    public void setFood(Food food){
+        this.food = food;
+    }
+    ...
+}
+This is not really recommended as it hides dependencies (could be Null when we call it, so first check is needed)
+
+3) Field injection - directly mutate field or modify using reflection (same problem as in setter injection,
+but also adds complexity due to the mutation it reflection required):
+Chef chef = new Chef();
+chef.burger = new Burger();
+
+Why we want to apply injection?
+Answer: Inversion of Control (IoC), stuff that is used to set better context in Spring.
+IoC enables a framework to take control over the flow of a program and make calls to our custom code.
+To do that frameworks use abstractions. Hence, to add an extra behavior, we extend the classes of framework.
+(again, Dependency Inversion principle from SOLID). We want to make sure that class depends not ont the
+implementation, but on the abstraction.
+

@@ -1,0 +1,26 @@
+Scope - thing that specifies how Spring will create beans
+
+Scopes:
+Singleton (default) - created once and when is called by getBean() returns its link. Commonly used when bean
+has no changeable states (stateless).
+    <bean id="musicPlayerBean"
+          class="baronvice.springstuff.musicplayer.MusicPlayer"
+          scope="singleton">
+        <constructor-arg ref="rockMusicBean"/>
+    </bean>
+- Not what we need to create multiple music players
+
+
+Prototype - every getBean() call returns new object. Commonly used when bean has changeable states (stateful)
+    <bean id="musicPlayerBean"
+          class="baronvice.springstuff.musicplayer.MusicPlayer"
+          scope="singleton">
+        <constructor-arg ref="rockMusicBean"/>
+    </bean>
+- That's how multiple music players should be created
+
+
+When Spring MVC will come:
+Request
+Session
+Global-session

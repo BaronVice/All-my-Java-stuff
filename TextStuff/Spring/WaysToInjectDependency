@@ -1,0 +1,19 @@
+1) From constructor (send arguments straight to constructor)
+    <bean id="musicPlayerBean"
+          class="baronvice.springstuff.musicplayer.MusicPlayer">
+        <constructor-arg ref="rockMusicBean"/>
+    </bean>
+
+2) From setter (firstly creates object with empty constructor, than set its values with setters)
+    <bean id="musicPlayerSetterBean"
+          class="baronvice.springstuff.musicplayer.MusicPlayer">
+        <property name="music" ref="bluesMusicBean"/>
+    </bean>
+
+We can inject references (ref=) or just values (value=)
+As well as values from external files. For this we'll need to create .properties file and fill it with
+pairs keys=values (song.name = Paradise City). Now it is possible to call key from context (value = "${song.name}"
+
+There is a lot of configurations (scope, init-method, destroy-method, factory method etc.)
+Injection is possible from XML, Java-annotations, Java-code
+Injections may be automatized with Autowiring

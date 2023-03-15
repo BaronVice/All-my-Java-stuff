@@ -26,6 +26,15 @@ class MusicPlayer(){
 
 }
 
-The last problem: object we want to inject should be created somewhere
+The last problem: object we want to inject should be created automatically, not manually
+MusicPlayer mp = new MusicPlayer(new Rock());
+Solution: use reference on another bean
 
-MusicPlayer mp = new MusicPlayer(new Rock()); -
+    <bean id="rockMusicBean"
+          class="baronvice.springstuff.musicplayer.utilities.music.RockMusic">
+    </bean>
+
+    <bean id="musicPlayerBean"
+          class="baronvice.springstuff.musicplayer.MusicPlayer">
+        <constructor-arg ref="rockMusicBean"/>
+    </bean>

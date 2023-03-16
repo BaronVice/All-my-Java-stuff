@@ -1,0 +1,57 @@
+- Again, from Java.Annotations:
+It's a special comment type that allows:
+1) Send some instructions to Java compiler
+2) Send some instructions for code-analyzers (e.g. tools for generating docs from code source)
+3) Send metadata, which could be used by Java app (Java reflection) or other apps or frameworks (Spring)
+
+- Why annotations are better than XML configuration?
+1) Shorter
+2) More practical
+3) Improves readability
+
+- How configuration works on annotations?
+Spring scan our classes -> Spring looking for classes with special annotations and automatically creates beans for them.
+
+- You have to enable Spring scan by typing in context <context:component-scan ...>
+
+
+--- @Component ---
+Used if we want Spring Framework to create Bean from class. Only this annotation Spring is looking for
+when it scans our classes.
+It is possible to give WhateverWeWant name for bean inside component value: @Component("whateverWeWant")
+
+
+--- @Autowired ---
+Inject dependencies automatically - Spring is looking for bean that fits constructor/setter/field (better stick to
+only one approach) and will inject it:
+
+@Autowired
+public MusicPlayer(Music music) {this.music = music}
+
+or...
+@Autowired
+public void setMusic(Music music) {this.music = music}
+
+or...
+@Autowired
+private Music music
+// It is possible even if there is no constructor/setter due to Reflection
+
+
+- After Spring scanned all classes for @Component it looks through for bean to fit as dependency where @Autowired placed
+If bean is found it is used for injection.
+Otherwise in case of:
+No capable beans - no qualifying bean,
+More than one bean may be taken for dependency - expected single bean but more found (solution is @Qualifier)
+@Autowired use bean type to go for injection (Class or Interface):
+
+@Autowired
+public MusicPlayer(Music music) {this.music = music}
+
+or...
+@Autowired
+public MusicPlayer(RockMusic rockMusic) {this.rockMusic = rockMusic}
+
+
+--- @Qualifier ---
+Is capable for setting bean id we want to use in case of ambiguity

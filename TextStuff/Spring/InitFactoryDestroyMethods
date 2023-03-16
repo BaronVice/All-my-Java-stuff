@@ -1,0 +1,36 @@
+Bean life cycle:
+Spring app launched -> Spring container (context) launched -> Bean object created -> Injecting Dependencies in Bean ->
+Beans init-method is called -> Bean is ready to use -> some work -> Beans destroy-method is called -> Spring app stops
+
+- Init-method:
+Launched when Bean needs to be initialized
+Resources initialization, connection to external files, DB launch
+- Destroy-method:
+Launched when Bean is destructed (when app stops)
+Clearing resources, close input-output streams, close DB connection
+- Factory-method:
+Factory method allows to create objects not from new, but with special factory method.
+They still will be created from new but not manually.
+
+In code:
+        <bean id="musicPlayerBean"
+              class="baronvice.springstuff.musicplayer.MusicPlayer"
+              scope="prototype"
+              init-method="sendStartMessage"
+              destroy-method="sendEndMessage"
+              factory-method="getMusicPlayer">
+            <constructor-arg ref="rockMusicBean"/>
+        </bean>
+
+Facts about init and destroy:
+1) WhateverYouWant access modifier (public, protected, private)
+2) Return value could be WhateverYouWant (most commonly it is void as there is no way to get return value from them)
+3) Method name is WhateverYouWant
+4) No arguments allowed though
+5) IMPORTANT ONE: Spring doesn't call destroy method for Beans with "prototype" scope.
+Spring is not capable for prototype beans life cycle, its a users matter.
+But every time prototype bean created init-method is also called.
+
+Facts about factory:
+1) It allows us to create beans from factory pattern
+2) Factory method is called only once if bean scope is singleton

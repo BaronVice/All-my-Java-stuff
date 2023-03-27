@@ -1,0 +1,42 @@
+Spring MVC - allows to develop web apps on Java.
+The MVC architecture is Model-View-Controller
+Development on MVC allows using of Spring Core tools (beans, DI, annotations etc.)
+
+Model-View-Controller is an application design pattern.
+Model - logic of data handling:
+1) Data storage
+2) Interaction with DB to get data
+3) Sends data to controller
+
+View - presentation logic aka user interface
+1) Collects data from model and present it in browser
+2) For dynamic presentation templates are used (Thymeleaf, Freemarker, Velocity)
+
+Controller - logic of navigation and request handling:
+1) Handle users requests
+2) Data exchange with model
+3) Show user right presentation
+4) Redirect user on other pages
+
+
+Data Base <-> Model <-> Controller <-> View (presentation)
+  Interact with DB          ^
+                            | <-------- DispatcherServlet
+                       HTTP Request
+
+1) Spring app is build on Java classes (controllers, models etc.)
+They usually apply specific annotations (@Controller, @Service, etc.)
+2) Set of HTML pages (presentation) with JS and CSS
+3) Spring configurations (XML, annotations, Java code)
+
+There is also a DispatcherServlet - entrance of Spring MVC app. It's already implemented by Spring.
+All we have to do - is implement Models, Views and Controllers, CJ!
+
+HTTP request from user:
+1) User visit server. Server handles request and sends it to Spring MVC.
+2) Request is caught by DispatcherServlet.
+3) DispatcherServlet sends request on the right controller.
+
+
+To launch MVC project you need a server. Tomcat is fine to begin with
+.pom should contain dependencies for Spring Core, Spring MVC and one for Thymeleaf template

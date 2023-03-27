@@ -22,7 +22,9 @@ Created objects are stored inside Application Context.
 4) And other useful components spring.io (Spring Security, Spring Boot, Spring Webflow, ...
 
 How to configure Spring:
-1) XML config file (old approach)
-2) Java annotations and a bit of XML (modern)
-3) All from Java code (also modern)
-
+1) XML config file (old approach) - describe all stuff in .xml config file
+set ClassPathXmlApplicationContext, then getBeans
+2) Java annotations and a bit of XML (modern) - still with .xml but some instructions are replaced with annotations
+same as previous but classes are marked with annotations
+3) All from Java code (also modern) - only annotations and java config class
+set AnnotationConfigApplicationContext, then getBeans

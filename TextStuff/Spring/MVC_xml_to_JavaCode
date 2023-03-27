@@ -1,0 +1,8 @@
+From Spring 3 it is possible to use Java code instead of xml files.
+To do this we have to create Java class which implements interface "org.springframework.web.WebApplicationInitializer":
+or use "AbstractAnnotationConfigDispatcherServletInitializer" which is already implements interface above.
+
+Spring config besides of @Configuration and @ComponentScan should also be annotated with @EnableWebMvc as now it
+is a web application
+
+One more dependency is required - Java Servlet API (used by abstract class)

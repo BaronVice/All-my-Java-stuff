@@ -1,0 +1,5 @@
+Server gets all data from web.xml.
+So inside of web.xml we can describe servers behavior.
+For instance, to redirect http requests on DispatcherServlet.
+
+Still, it is possible to handle with Java code (like we did it with configuration files)

@@ -1,0 +1,20 @@
+@Controller
+1) Marks controller class
+2) Inherited from @Component (that's why @ComponentScan works the same as with @Controller)
+3) So @Controller is a @Component with wider functionality
+
+Controller methods
+1) There may be more than one method inside of controller
+2) Usually every method is connected to one URL
+3) Usually methods return String - name of view, which should be presented to user
+4) Method may have whateverYouWant name
+
+Mappings (@GetMapping, @PostMapping, @PutMapping, @DeleteMapping, @PatchMapping):
+There are five different mapping annotations (depends on request). Mapping connects controllers method with address.
+Also may be used on classes:
+
+@Controller
+@RequestMapping("/people") - all methods addresses have prefix "/people"
+public class People{
+    ...
+}

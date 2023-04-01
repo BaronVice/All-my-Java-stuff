@@ -1,0 +1,13 @@
+CRUD - create read update delete. These are four main functions used to operate with DB
+
+CRUD application - app that allows create, read, update and delete data
+CRUD app (create, update, delete)-> DB
+CRUD app <-(read) DB
+
+CRUD applications are commonly web-apps (and most of web-apps are CRUD apps). In other words, https gives access to DB
+
+                HTTP
+Client (post, patch, delete)-> CRUD app on web server -> DB
+Client       <-(get)           CRUD app on web server -> DB
+
+HTTP methods: get, post, patch, delete (these are defined by REST)

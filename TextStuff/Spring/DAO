@@ -1,0 +1,13 @@
+Data access object - pattern.
+It's bad approach to connect model directly with DB. Instead of that we want to take it off in other class.
+So DAO is for class that is acting with DB.
+
+Before:
+PeopleController -> Person(Model) <=> DB
+After:
+PeopleController <=> PersonDAO <=> DB
+                         ^
+                         L > Person
+
+
+DAO classes usually contain SQL code

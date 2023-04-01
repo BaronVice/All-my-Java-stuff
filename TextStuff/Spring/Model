@@ -1,0 +1,14 @@
+Model - is a data container for our application
+                   Model         Model
+HTML Form (and more) -> Controller -> Views
+                            ^
+                            |
+                        Data Base
+
+To get access from controller to model you need to add Model as an argument inside controllers method
+@GetMapping("/hello")
+public String helloPage(Model model) {
+    model.getAttribute("Key", "Some value");
+
+    return "first/hello"
+}

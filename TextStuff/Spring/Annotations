@@ -55,3 +55,16 @@ public MusicPlayer(RockMusic rockMusic) {this.rockMusic = rockMusic}
 
 --- @Qualifier ---
 Is capable for setting bean id we want to use in case of ambiguity
+
+
+@ModelAttribute
+1) When method is annotated, than every method in controller will have pair of key-value.
+Key is located inside this annotation, value - in return
+
+@ModelAttribute("notFoundMessage")
+public String sendHeaderMessage(){
+    return "Sorry, user is not found"
+}
+
+2) When argument is annotated - instead of getting all arguments with @RequestParam, set its values inside new object
+and sending it to model, we can just annotate one argument to do all this stuff

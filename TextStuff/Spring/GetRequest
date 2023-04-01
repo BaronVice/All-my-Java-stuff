@@ -1,0 +1,18 @@
+localhost:8080?name=Baron&surname=Vice
+
+How to get request arguments?
+1) With HttpServletRequest object:
+@GetMapping("/hello")
+public String helloPage(HttpServletRequest request){
+    String name = request.getParameter("name");
+
+    return "first/hello"
+}
+We can take whatEverWeWant from HttpServletRequest
+
+2) With @RequestParam annotation:
+@GetMapping("/hello")
+public String hello page(@RequestParam("name") String name){
+    return "first/hello";
+}
+Here only parameters are accessible. And if any is missed - 404 is shown (unless we use required=false)

@@ -54,3 +54,16 @@ Response Content-Type:
 3) text/xml
 4) application/json
 5) ...
+
+
+HTML 5 has only GET and POST methods. Still, HTTP got plenty of them (GET, POST, PATCH, DELETE, PUT, ...)
+How to solve this problem?
+<form method="post" action="people/12">
+    <input type="hidden" name="_method" value="INSERT_HERE_REQUIRED_METHOD"
+    ...
+</form>
+
+PATCH, DELETE, PUT requests are sent by POST request - inside of hidden field _method lays required method.
+- Thymeleaf handles it fine.
+- And Spring uses filter (object that catches all http requests) to look for _method field.
+(filter is connected manually, but with spring boot you just need to write on line to automize it)

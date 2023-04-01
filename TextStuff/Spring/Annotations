@@ -56,6 +56,10 @@ public MusicPlayer(RockMusic rockMusic) {this.rockMusic = rockMusic}
 --- @Qualifier ---
 Is capable for setting bean id we want to use in case of ambiguity
 
+@PathVariable
+To extract value from request (here product will be extracted)
+@UpdateMapping("/store/{product}")
+public String update(@PathVariable("product") String product)
 
 @ModelAttribute
 1) When method is annotated, than every method in controller will have pair of key-value.

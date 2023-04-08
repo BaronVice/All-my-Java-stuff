@@ -1,7 +1,6 @@
 package CollectionsStudy.SetExamples;
 
 import lombok.Data;
-
 import java.util.*;
 
 /** equals() и hashCode() нужны вместе для сравнения наиболее быстрым образом.

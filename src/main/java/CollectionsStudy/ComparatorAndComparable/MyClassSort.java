@@ -1,6 +1,5 @@
 package CollectionsStudy.ComparatorAndComparable;
 
-import lombok.Data;
 
 import java.util.*;
 

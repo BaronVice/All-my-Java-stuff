@@ -67,3 +67,9 @@ PATCH, DELETE, PUT requests are sent by POST request - inside of hidden field _m
 - Thymeleaf handles it fine.
 - And Spring uses filter (object that catches all http requests) to look for _method field.
 (filter is connected manually, but with spring boot you just need to write on line to automize it)
+
+GET - read
+POST - create new
+PATCH - for partial update
+PUT - replace entirely
+DELETE - delete

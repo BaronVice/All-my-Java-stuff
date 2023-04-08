@@ -1,0 +1,27 @@
+Creating SQL request manually is a bad idea:
+1) Kinda hardcore
+2) Easy to make a mistake
+3) Potential SQL injection threat
+
+SQL injection is most common way to break application that uses DB.
+Strings from HTML forms are concatenating in SQL request. This situation might happen:
+- SQL expects nickname, name, surname.
+- as a surname user puts "GETREKTNOOB'); DROP TABLE Person; --"
+- result: INSERT INTO Person VALUES('get', 'rekt', 'GETREKTNOOB'); DROP TABLE Person; --')
+Yeap, table will be dropped
+
+Solution:
+PreparedStatement - this thing should be wherever we take data from user
+Like this:
+PreparedStatement preparedStatement = connection.preparedStatement("INSERT INTO Person VALUES(?, ?, ?)");
+
+preparedStatement.setNickname(1, ...);
+preparedStatement.setName(2, ...);
+preparedStatement.setSurname(3, ...);
+
+preparedStatement.executeUpdate();
+
+- SQl request is compiled and can't be modified. User can insert data only inside required spaces - ?
+- PreparedStatement is faster than Statement:
+1) PreparedStatement compiled only once. Statement compiled every time the request is written.
+2) Also PreparedStatement can be cached inside DB

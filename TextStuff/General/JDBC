@@ -1,0 +1,59 @@
+Why to use DB?
+
+Every time we reload application all saved data is lost. So data should be recorded not in RAM, but HDD.
+- That is when DB is used.
+
+Relation DB - DB that store data in form of tables.
+
+How to connect Java app with DB?
+1) JDBC API - low-level approach. All requests are made manually,
+as well as converting Java objects to table strings and vice versa.
+2) JdbcTemplate - wrapping of JDBC API. Part of Spring Framework.
+Introducing some abstractions and can manage some work for itself.
+3) Hibernate - high-level of abstractions. Almost fully automized DB requests and converting.
+Also capable for creating tables based on out Java classes. This functional is called ORM (Object-Relational Mapping)
+
+How to connect to DB?
+- Start DB (locally or remotely)
+- This DB has its own address:
+url=jdbc:postgresql://localhost:5432/db_name=... username=postgres password=...
+- Use JDBC driver to connect to DB with specified address.
+- Now we can make requests to DB from Java application.
+
+
+Basic SQL (Structured Query Language) commands:
+-- DDL (Data Definition Language) --
+- Create DB with specified name
+1) CREATE DATABASE db_name;
+- Delete DB with specified_name
+2) DROP DATABASE db_name;
+- Create table with specified name and columns
+3) CREATE TABLE table_name (
+    id int,
+    name varchar
+);
+- Delete table with specified name
+4) DROP TABLE table_name;
+
+-- DML (Data Manipulation Language) --
+- Get specified columns from table
+1) SELECT id, name FROM table_name;
+- Get all columns from table
+2) SELECT * FROM table_name;
+- Add record into table
+3) INSERT INTO Person(id, name) VALUES (1, 'Tom');
+- Change values from existing record
+4) UPDATE Person SET name='Tom123' WHERE id=1;
+- Delete by column
+5) DELETE FROM Person WHERE id=1;
+
+
+- How it was:
+View <=> Controller <=> DAO <=> HashMap<Person>
+                        | |
+                       Model
+
+- What will be:
+View <=> Controller <=> DAO <=> JDBC API <=> PostgreSQL
+                        | |
+                       Model

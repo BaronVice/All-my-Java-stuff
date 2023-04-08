@@ -17,7 +17,7 @@ Spring scan our classes -> Spring looking for classes with special annotations a
 
 --- @Component ---
 Used if we want Spring Framework to create Bean from class. Only this annotation Spring is looking for
-when it scans our classes.
+when it scans our classes (@Controller as well - the inheritor of @Component).
 It is possible to give WhateverWeWant name for bean inside component value: @Component("whateverWeWant")
 
 

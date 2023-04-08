@@ -1,10 +1,5 @@
 package SOLID;
 
-import lombok.Getter;
-import lombok.Setter;
-
-import java.awt.datatransfer.DataFlavor;
-
 /** Subtypes should be replaceable by their base types */
 public class LiskovSubstitutionPrincipal {
     public static void main(String[] args) {

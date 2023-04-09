@@ -1,0 +1,59 @@
+JdbcTemplate is a wrapper of JDBC API
+
+- Problems of JDBC API:
+1) A lot of excess code - creating Connection, Statement, ResultSet
+2) Uninformative SQLException that must be handled frequently
+
+JdbcTemplate offers an easier way to communicate with DB.
+To use JdbcTemplate we have to set required data from DataSource:
+1) Driver
+2) DB url
+3) DB username
+4) DB password
+
+After arguments are applied it is possible to inject it inside DAO.
+* btw, all JdbcTemplate statements are PreparedStatements.
+
+The structure is:
+jdbcTemplate.someMethod("SQL REQUEST", RowMapper)
+* RowMapper - record converter (for instance - from record to Person object).
+We can create our own Mapper implementing RowMapper<ClassToConvert>
+But usually BeanPropertyRowMapper<>(ClassToConvert) can handle this automatically
+(if ClassToConvert fields fit table columns)
+
+- To get list of records:
+return jdbcTemplate.query(
+    "SELECT * FROM Person",
+    new BeanPropertyRowMapper<>(Person.class)
+);
+
+- To get record by column argument:
+return jdbcTemplate.query(
+    "SELECT * FROM Person WHERE nickname=?",
+    Object[]{nickname},
+    new BeanPropertyRowMapper
+).stream.findAny.orElse(null);
+
+- To insert new record:
+jdbcTemplate.update(
+    "INSERT INTO Person VALUES(?, ?, ?)",
+    person.getNickname(),
+    person.getName(),
+    person.getSurname()
+);
+
+- To update a record:
+jdbcTemplate.update(
+    "UPDATE Person SET nickname=?, name=?, surname=? WHERE nickname=?",
+    updatedPerson.getNickname(),
+    updatedPerson.getName(),
+    updatedPerson.getSurname(),
+    previousNickname
+);
+
+- To delete a record:
+jdbcTemplate.update(
+    "DELETE FROM Person WHERE nickname=?",
+    nickname
+);
+

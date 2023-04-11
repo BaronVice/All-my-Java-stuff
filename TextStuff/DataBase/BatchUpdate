@@ -1,0 +1,6 @@
+Why to use it?
+
+If 1000 inserts are required - 1000 requests will be sent and each request will be responded (high pressure on network)
+Instead of that we may use Batch Update - send 1000 requests in 1 package. It means that there will be 1 request to
+send package and one response if DB managed to handle package. More than that, with Batch Update DB can multi-thread
+requests.

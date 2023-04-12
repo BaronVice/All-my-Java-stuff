@@ -1,0 +1,51 @@
+Between tables there are relationships and connections
+
+Relational DB - DB of tables with relationships and connections.
+
+- Primary key - column that uniquely identify record in table.
+- Foreign key - column that allows to build connections between tables.
+Foreign key in one table is a primary key in another.
+
+- Why to split data onto tables?
+To normalize data. Otherwise there would be a unnormalized table with redundancy (duplicating data).
+
+---------------------------------------------------------------------------------------------------
+One to many: one customer - many orders, one teacher - many students, one library - many books, ...
+Primary key (PK) of table contains only unique values, but foreign key (FK) in table may contain
+duplicates. Table with FK - is a child table, table with only PK - is a parent table.
+
+* One order cannot belong to many people due to restriction of order_id as a primary key.
+
+        Person                                Order
+| user_id | name | age |        | order_id | user_id | item_name |
+|    1    | Tom  | 23  |        |     1    |    1    |   Book    |
+|    2    | Kate | 21  |        |     2    |    1    |    TV     |
+|    3    | Mark | 36  |        |     3    |    3    |   Laptop  |
+                                |     4    |    2    |   Paint   |
+                                |     5    |    2    |   Brush   |
+---------------------------------------------------------------------------------------------------
+One to one: one man - one id, one principal - one school, ...
+PK in child table is also a FK.
+
+* Person can live without passport, but passport cannot exist without person.
+
+        Person                              Passport
+| person_id | name | age |        | person_id | passport_number |
+|     1     | Tom  | 23  |        |     1     |     1234567     |
+|     2     | Kate | 21  |        |     2     |     1124555     |
+|     3     | Mark | 12  |
+---------------------------------------------------------------------------------------------------
+Many to many: many actors - many movies, many students - many classes
+
+To handle this relation we have to build Join Table.
+
+* In join table both Actor and Movie are connected.
+* actor_id and movie_id can have duplicates, but records cannot be duplicated - PK is a pair of actor_id and movie_id
+
+         Actor                      Actor_Movie                    Movie
+| actor_id | name | age |    | actor_id  | movie_id |    | movie_id  |  movie_name  |
+|    1     | Tom  | 23  |    |     1     |     1    |    |     1     |    Snatch    |
+|    2     | Kate | 21  |    |     1     |     2    |    |     2     | Pulp Fiction |
+|    3     | Mark | 12  |    |     2     |     1    |
+                             |     2     |     2    |
+                             |     3     |     1    |

@@ -1,0 +1,48 @@
+Normalized tables store data effectively, but they are hard to be visualized:
+We have to compare keys, but what if there are 1M records?
+
+* In that case it is better temporarily join all tables in one (without creating new tables) to watch all data and
+relations in more easier way.
+
+Join normalized tables into one unnormalized (no new tables created - only for disposal view)
+
+- Join types (most used are (1) and (2.1)):
+1) Inner join (if can't find match in any table - it's record wont appear)
+2) Outer join
+2.1) Left outer join (if can't find match from left table in right table - null will be placed for right table values)
+2.2) Right outer join (if can't find match from right table in left table - null will be placed for left table values)
+3) Cross Join (Weird - multiplication right and left tables)
+
+------------------------------------------------------------------------
+Inner Join: SELECT * FROM Person JOIN Passport ON Person.person_id = Passport.person_id
+
+        Person                              Passport
+| person_id | name | age |        | person_id | passport_number |
+|     1     | Tom  | 23  |        |     1     |     1234567     |
+|     2     | Kate | 21  |        |     2     |     1124555     |
+|     3     | Mark | 12  |
+
+--------- After JOIN ---------
+| Person.person_id | name | age | Passport.person_id | passport_number |
+|         1        | Tom  | 23  |         1          |     1234567     |
+|         2        | Kate | 21  |         2          |     1124555     |
+
+------------------------------------------------------------------------
+Outer Join (Left): SELECT * FROM Person LEFT JOIN Passport ON Person.person_id = Passport.passport_id
+
+        Person                              Passport
+| person_id | name | age |        | person_id | passport_number |
+|     1     | Tom  | 23  |        |     1     |     1234567     |
+|     2     | Kate | 21  |        |     2     |     1124555     |
+|     3     | Mark | 12  |
+
+--------- After JOIN ---------
+| Person.person_id | name | age | Passport.person_id | passport_number |
+|         1        | Tom  | 23  |         1          |     1234567     |
+|         2        | Kate | 21  |         2          |     1124555     |
+|         3        | Mark | 12  |        null        |       null      |
+
+
+- When to use Inner join and Left join?:
+1) Show users that specified their email - Inner join
+2) Show all available information about all users - Left join

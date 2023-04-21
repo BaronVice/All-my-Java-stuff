@@ -1,0 +1,19 @@
+Let's say we have a table transaction with 5M records:
+
+| record_id | transaction_date | amount | transaction_type | bank_account_id |
+    some           values         lay          inside             table
+
+And we'd like to make requests:
+SELECT * FROM transaction WHERE amount > 100000
+
+Man, you know Big O - 5M operations is required to execute it. Moreover this kind of request will be sent frequently
+And as a competitive programmer you programmer you will come to solution:
+1) Sort (n*log(n) once)
+2) Use bin search (log(n) every request, which is much better than just n)
+
+In that case you want to create Index for amount.
+Index - sorted values bonded with primary key. It means that when you need to execute something with amount - it
+will be done not inside table, but in Index.
+
+Pros: SPEEEEEEEEEEEED
+Cons: memory...

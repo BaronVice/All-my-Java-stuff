@@ -1,0 +1,12 @@
+What happens when we try to delete a record, value of which used in another table?
+- Answer: error will be raised.
+
+Now how actually referenced value is created:
+- At first sight: user_id int References Person(user_id)
+- Actually it is: user_id int References Person(user_id) ON DELETE RESTRICT
+
+ON DELETE - describes behavior of how table should react when referenced value is deleted
+There are three behaviors:
+1) Restrict (default) - raise error when is called for delete
+2) Cascade - when referenced value is deleted whole bonded record deleted as well
+3) Set null - deleted value is replaced with null

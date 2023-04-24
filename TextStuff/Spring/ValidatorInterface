@@ -1,0 +1,27 @@
+Validation annotation offer simple checks.
+When advanced validation required - Validator is used.
+
+It's an interface and when implemented it allows to check if some object complies with requirements.
+
+Example: if name is already used - reject it (not possible with annotations as they can't call DB)
+
+@Component
+@AllArgsConstructor(onConstructor = @__(@Autowired))
+public class GameValidator implements Validator {
+
+    private final GameDAO gameDAO;
+
+    @Override
+    public boolean supports(Class<?> aClass) {
+        return Game.class.equals(aClass);
+    }
+
+    @Override
+    public void validate(Object o, Errors errors) {
+        Game game = (Game) o;
+        if (gameDAO.show(game.getName()) != null)
+            errors.rejectValue("name", "", "Game with this name is already exists");
+    }
+}
+
+Also this validator should be injected inside controller (to manage responses if all fine or not).

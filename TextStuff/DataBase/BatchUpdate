@@ -4,3 +4,45 @@ If 1000 inserts are required - 1000 requests will be sent and each request will 
 Instead of that we may use Batch Update - send 1000 requests in 1 package. It means that there will be 1 request to
 send package and one response if DB managed to handle package. More than that, with Batch Update DB can multi-thread
 requests.
+
+    // Weak approach
+    public void separateUpdate(){
+        List<Person> people = generateThousandPeople();
+
+        long start = System.currentTimeMillis();
+        for (Person person : people)
+            jdbcTemplate.update(
+                    "INSERT INTO PersonTest VALUES (?, ?, ?)",
+                    person.getNickname(),
+                    person.getName(),
+                    person.getEmail()
+            );
+        long end = System.currentTimeMillis();
+
+        System.out.println("Separate update time: " + (end - start));
+    }
+
+    // This is a best one
+    public void batchUpdate(){
+        List<Person> people = generateThousandPeople();
+        long start = System.currentTimeMillis();
+        jdbcTemplate.batchUpdate(
+                "INSERT INTO PersonTest VALUES (?, ?, ?)",
+                new BatchPreparedStatementSetter() {
+                    @Override
+                    public void setValues(PreparedStatement preparedStatement, int i) throws SQLException {
+                        preparedStatement.setString(1, people.get(i).getNickname());
+                        preparedStatement.setString(2, people.get(i).getName());
+                        preparedStatement.setString(3, people.get(i).getEmail());
+                    }
+
+                    @Override
+                    public int getBatchSize() {
+                        return people.size();
+                    }
+                }
+        );
+        long end = System.currentTimeMillis();
+
+        System.out.println("Batch update time: " + (end - start));
+    }

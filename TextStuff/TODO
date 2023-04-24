@@ -1,5 +1,7 @@
 - Learn thread-safe collections
 - Read about varargs
 - Method isSynthetic, isBridge, isDefault, isVarArgs (optional)
-- Try to create something like delegate from reflection
+- Delegates in Java
 - Learn some basic patterns
+- Guava
+- *Something important that I forgot*

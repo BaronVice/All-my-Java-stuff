@@ -13,6 +13,9 @@ int age;
 @Email(message="Email should be valid")
 String email;
 
+@Pattern(regexp = "[A-Z]\\w{3,55}, [A-Z]\\w{0,84}, \\d{6}", message = "Incorrect address format")
+private String address;
+
 
 When we want to check if given value is valid before inserting it:
 

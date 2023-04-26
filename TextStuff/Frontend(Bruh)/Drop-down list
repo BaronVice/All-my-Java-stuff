@@ -1,0 +1,14 @@
+Created with select and optional tags:
+
+<select id="genre" name="genre">
+    <!-- Value - is for server. Outside text is for user -->
+    <option value="Shooter">Shooter</option>
+    <option value="Race">Race</option>
+    <option value="Arcade">Arcade</option>
+</select>
+
+
+With thymeleaf:
+<select th:object="${person}" th:field="*{id}" id="person">
+    <option th:each="person : ${people}" th:value="${person.getId()}" th:text="${person.getNickname()}"></option>
+</select>

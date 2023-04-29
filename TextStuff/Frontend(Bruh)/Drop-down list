@@ -9,6 +9,6 @@ Created with select and optional tags:
 
 
 With thymeleaf:
-<select th:object="${person}" th:field="*{id}" id="person">
-    <option th:each="person : ${people}" th:value="${person.getId()}" th:text="${person.getNickname()}"></option>
+<select th:object="${game}" th:field="*{genre}" id="genre">
+    <option th:each="genre : ${genres}" th:value="${genre.getName()}" th:text="${genre.getName()}"></option>
 </select>

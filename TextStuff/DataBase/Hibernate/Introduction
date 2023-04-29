@@ -1,0 +1,31 @@
+So, with JDBC API and JdbcTemplate we had to write all requests by ourselves.
+
+We may find out that Java classes have similarities with tables in relational DB:
+1) Class name - table name
+2) Object of class - table record
+3) List of objects (List<Person>) - table itself
+4) Class field - table column
+
+That's how ORM (Hibernate) was created.
+ORM - Object-Relational Mapping. With this tool it is possible to automize requests
+if class and table have the same mapping.
+
+Hibernate - is wrapper of JDBC API.
+Hibernate entities:
+1) Session
+- To send request with hibernate - session is required. Session is an object to communicate with hibernate.
+Session object is reachable from SessionFactory object (fabric pattern)
+- Session methods: get, save, update, delete, ...
+
+2) Transaction
+- Is a thread to DB, required for data consistency inside table.
+- Transactions can block access to DB
+Examples:
+While something is being written inside table - don't read values from it
+While record is being updated inside table - it's not possible to edit this record
+While records are being deleted - close access to all records
+And every transaction has its own isolation level (what actions are possible while access is blocked)
+- Transactions may be implemented (COMMIT) and rolled back (ROLLBACK)
+
+
+* Kinda same as locks and synchronized in multithreading to avoid race condition?

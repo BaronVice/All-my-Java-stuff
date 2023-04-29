@@ -33,4 +33,4 @@ But every time prototype bean created init-method is also called.
 
 Facts about factory:
 1) It allows us to create beans from factory pattern
-2) Factory method is called only once if bean scope is singleton
+2) Destroy method is called only once if bean scope is singleton

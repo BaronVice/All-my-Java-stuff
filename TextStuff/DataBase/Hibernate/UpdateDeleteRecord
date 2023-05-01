@@ -1,0 +1,17 @@
+Actually, session.get(SomeClass.Class, someKey) returns not just value from table, but kinda link on record.
+It means that if we change value of gotten object - it also changes inside DB:
+
+- Update
+...
+    // 1, "BaronVice", 22
+    Person person = session.get(Person.Class, 1);
+    person.setAge(44);
+    System.out.println(session.get(Person.Class, 1));
+    // 1, "BaronVice", 44
+...
+
+- Delete (same stuff as update - get link, delete by link)
+...
+    Person person = session.get(Person.Class, 1);
+    session.delete(person);
+...

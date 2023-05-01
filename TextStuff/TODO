@@ -2,8 +2,9 @@
 - Read about varargs
 - Method isSynthetic, isBridge, isDefault, isVarArgs (optional)
 - Delegates in Java
-- Learn some basic patterns
+- Learn some basic design patterns
 - Guava
 - Docker
 - Watch about advanced annotation creation
+- Redis
 - Frontend

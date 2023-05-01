@@ -1,14 +1,9 @@
 package Hibernate.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="Person")
@@ -17,10 +12,8 @@ import javax.persistence.Table;
 @AllArgsConstructor
 public class Person {
     @Id
-    @Column(name = "id")
-    private int id;
-    @Column(name = "name")
-    private String name;
+    @Column(name = "nickname")
+    private String nickname;
     @Column(name = "age")
     private int age;
 }

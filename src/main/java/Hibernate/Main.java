@@ -10,18 +10,18 @@ public class Main {
         Configuration configuration = new Configuration().addAnnotatedClass(Person.class);
 
         SessionFactory sessionFactory = configuration.buildSessionFactory();
-        Session session = sessionFactory.getCurrentSession();
 
-        try {
+        try (sessionFactory) {
+            Session session = sessionFactory.getCurrentSession();
             session.beginTransaction();
 
-            Person person = session.get(Person.class, 3);
+            Person person = session.get(Person.class, "Bob the builder");
             System.out.println(person);
 
+            person.setAge(666);
+            System.out.println(session.get(Person.class, "Bob the builder"));
+
             session.getTransaction().commit();
-        }
-        finally {
-            sessionFactory.close();
         }
     }
 }

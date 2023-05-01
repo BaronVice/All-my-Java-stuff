@@ -1,0 +1,10 @@
+session.createQuery("from Person").getResultList() - return all records from entity Person
+
+session.createQuery("from Person where nickname like 'Abo%'").getResultList() - return all records from entity Person,
+where nickname starts with sequence 'Abo'
+
+session.createQuery("update Person set age=123 where nickname like '%d%'").executeUpdate() - update all records
+in entity Person, set records age=123 if its nickname contains char 'd'
+
+session.createQuery("delete from Person where age < 14").executeUpdate() - delete all records from entity Person with
+age < 14

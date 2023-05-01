@@ -4,6 +4,7 @@ package Hibernate.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="Person")
@@ -14,6 +15,10 @@ public class Person {
     @Id
     @Column(name = "nickname")
     private String nickname;
+
     @Column(name = "age")
     private int age;
+
+    @OneToMany(mappedBy = "owner")
+    private List<Product> products;
 }

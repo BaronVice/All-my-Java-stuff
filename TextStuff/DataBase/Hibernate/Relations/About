@@ -1,0 +1,5 @@
+To build relations between tables you should use annotations on fields, that describe it:
+@OneToMany - parent entity
+@ManyToOne - child entity
+@JoinColumn - reference on inner key
+

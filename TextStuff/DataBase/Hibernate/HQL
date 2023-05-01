@@ -1,0 +1,17 @@
+For specific tasks hand-made requests required:
+1) Print every person with age > 20
+2) Delete all topics which name begins with "Faq"
+3) Update all employees by increasing their salaries for 300 bucks
+4) ...
+
+Difference between SQL and HQL:
+SQL: SELECT * FROM Person WHERE name = "SomeName"
+HQL: FROM Person WHERE name = "SomeName"
+
+In SQL there is communication with tables, in HQL - with classes
+
+Purposes of HQL:
+1) Communicate with entities (Java classes), not entities
+2) Can be converted to SQL
+3) Easier for complex requests
+4) Usually, Spring app is a combination of Hibernate and Non-common SQL requests

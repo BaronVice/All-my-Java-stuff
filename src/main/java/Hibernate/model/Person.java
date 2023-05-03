@@ -21,4 +21,7 @@ public class Person {
 
     @OneToMany(mappedBy = "owner")
     private List<Product> products;
+
+//    @OneToOne(mappedBy = "owner")
+//    private Passport passport;
 }

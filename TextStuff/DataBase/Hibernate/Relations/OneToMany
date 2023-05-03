@@ -1,0 +1,36 @@
+
+@Entity
+@Table(name="Person")
+class Person{
+    @Id
+    @Column(name="nickname")
+    private String nickname;
+
+    @Column(name="age")
+    private int age;
+
+    @OneToMany(mappedBy="owner")
+    private List<Products> products;
+}
+
+@Entity
+@Table(name="Product")
+class Product{
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private int id;
+
+    @Column(name="name")
+    private String name;
+
+    @ManyToOne
+    @JoinColumn(name="person_nickname", referencedColumnValue="nickname")
+    private Person owner;
+}
+
+Relations are build with annotations @OneToMany, @ManyToOne - owner side (as it owns outer key).
+@OneToMany(mappedBy="owner") - on list of objects, mappedBy - by what field in related class it should be mapped
+@ManyToOne - on owner object
+@JoinColumn(name="person_nickname", referencedColumnValue="nickname") - name - column name in table,
+referencedColumnValue - column name in referenced table

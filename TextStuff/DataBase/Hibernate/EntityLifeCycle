@@ -1,0 +1,28 @@
+There are four states of entity lifecycle:
+1) Transient
+2) Persistent (Managed)
+3) Detached
+4) Removed
+
+- Transient
+When object is created, but not saved in Hibernate cache:
+...
+    Person person = new Person(...);
+...
+
+It becomes
+- Persistent
+When we save it in session and commit session:
+...
+    Person person = new Person(...);
+    session.save(person);
+    session.getTransaction.commit();
+...
+or when we take object from Hibernate with session.get()
+
+- Detached
+...
+
+- Removed
+...
+

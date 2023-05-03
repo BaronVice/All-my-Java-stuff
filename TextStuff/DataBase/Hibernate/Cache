@@ -1,0 +1,19 @@
+There is a thing called Hibernate cache that is synchronized by Hibernate from time to time.
+It means that when we build connection from one side - it will be written in SQL, but the other side will get this
+connection only a while ago. So, it's better to stick with accurate approach - when something happening with one
+side, we should apply changes in other side. Using this approach we avoid problem of bad cache coherency.
+
+...
+    Person person = session.get(Person.class, "Bob");
+    session.delete(person);
+    person.getProducts.forEach(session::delete);
+...
+
+...
+    Person person = new Person(...);
+    Product product = new Product(..., person);
+    session.save(product);
+    person.getProducts().add(product);
+...
+
+It doesn't cause additional SQL request, but will keep Hibernate cache in order

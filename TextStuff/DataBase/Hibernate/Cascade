@@ -1,0 +1,48 @@
+We have a request - delete person from table Person, this person has some products in table Product.
+So, when person is deleted we also want to delete its products (or set it to null).
+
+Hibernate doesn't implement cascading by default - we have to turn it on by ourselves.
+
+...
+    Person person = session.get(...);
+    session.delete(person);
+    // After commit persons products should be also deleted
+    session.getTransaction.commit();
+...
+
+Another example with save: create person, give him some items, save this person
+...
+    Person person = new Person(...);
+    Product product = new Product(..., person);
+    person.setProducts(new ArrayList<>(List.of(product)));
+
+    session.save(person);
+    // After this we also want to save persons items
+    session.getTransaction.commit();
+...
+
+To enable cascading option we have to apply it inside annotation that describes relation
+
+...
+    class Person{
+        ...
+        @OneToMany(mappedBy="owner", cascade=CascadeType.PERSIST) // Persist is for save
+        private List<Product> products
+    }
+...
+
+And now all persons products will be saved when this person is saved.
+INSTEAD OF session.save(person) WE HAVE TO USE session.persist(person), OTHERWISE CASCADE WON"T WORK.
+
+------------------------------------------------------------------------------------------------------
+
+Man, but what if I don't want to use .persist()?
+- Use @Cascade instead than:
+...
+    class Person{
+        ...
+        @OneToMany(mappedBy="owner")
+        @Cascade(CascadeType.SAVE_UPDATE)
+        private List<Product> products
+    }
+...

@@ -19,23 +19,13 @@ public class Main {
         try (sessionFactory) {
             Session session = sessionFactory.getCurrentSession();
             session.beginTransaction();
-            Person person = session.get(Person.class, "Abobus");
-            session.delete(person);
-//            Session session = sessionFactory.getCurrentSession();
-//            session.beginTransaction();
-//            session.save(new Passport("Abobus", "Uganda"));
-//            session.save(new Passport("Man", "Murica"));
-////            session.createQuery("update Person set age=123 where nickname like '%d%'").executeUpdate();
-////            List<Person> people = session.createQuery("from Person").getResultList();
-////            people.forEach(System.out::println);
-//            Person person = session.get(Person.class, "Abobus");
-//            System.out.println(person.getNickname());
-//            List<Product> products = person.getProducts();
-//            for (Product product : products)
-//                System.out.printf("%s - %s%n", product.getId(), product.getName());
-            for (Product product : person.getProducts()){
-                System.out.println(product.getName());
-            }
+
+            Person person = new Person("Juan", 92);
+            person.addProduct(new Product("Horse"));
+            person.addProduct(new Product("Sea"));
+
+            session.save(person);
+
             session.getTransaction().commit();
         }
     }

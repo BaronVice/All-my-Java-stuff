@@ -1,0 +1,10 @@
+These two methods almost have no difference, but...
+
+.save() VS .persistent()
+(JPA - Java Persistence API)
+1) Hibernate method, you wont find it in other JPA libraries - From JPA specifications (any JPA provider implements it)
+2) Returns primary key of saved entity - Void return
+3) Guaranteed that primary key will be defined when .save() is called - primary key will be defined but maybe not right
+after .persistent() is called
+
+But all other details almost has no difference

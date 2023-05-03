@@ -21,8 +21,15 @@ When we save it in session and commit session:
 or when we take object from Hibernate with session.get()
 
 - Detached
-...
+After session.detach(someObj) hibernate is not watching for any detached object changes.
+Its kinda transient, but can be returned to persistent with session.merge(someObj).
+Another condition of object being detached - closing hibernate session
 
 - Removed
+Object deleted in session followed by commit:
+...
+    Person person = session.get(...);
+    session.delete(person);
+    session.getTransaction.commit();
 ...
 

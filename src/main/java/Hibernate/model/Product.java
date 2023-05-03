@@ -23,7 +23,6 @@ public class Product {
     private String name;
 
     @ManyToOne
-    @NonNull
     @JoinColumn(name = "person_nickname", referencedColumnName = "nickname")
     private Person owner;
 }

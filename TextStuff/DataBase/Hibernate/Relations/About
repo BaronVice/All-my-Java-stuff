@@ -3,3 +3,5 @@ To build relations between tables you should use annotations on fields, that des
 @ManyToOne - child entity
 @JoinColumn - reference on inner key
 
+
+

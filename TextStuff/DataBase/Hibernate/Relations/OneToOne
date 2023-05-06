@@ -1,0 +1,45 @@
+Same stuff as with @OneToMany/@ManyToOne
+
+class Person {
+    ...
+
+    @OneToOne(mappedBy="owner")
+    @Cascade(...)
+    private Passport passport;
+}
+
+// Serializable used here as identifier is not a primitive (should be converted to byte-code)
+class Passport implement Serializable{
+    @Id
+    @OneToOne
+    @JoinColumn(name="passport_nickname", referencedColumnNickname="nickname")
+    private Person owner;
+
+    ...
+}
+
+-------------------------------------------------------------------------------------------------------
+There is another way to build this relation. It's kinda similar as one to many
+
+class Person {
+    ...
+
+    @OneToOne(mappedBy="owner")
+    @Cascade(...)
+    private Passport passport;
+}
+
+class Passport {
+    @Id
+    @Column(name = "id")
+    @GenerationValue(strategy=GenerationType.IDENTIFIER)
+    private int id;
+
+    ...
+
+    @OneToOne
+    @JoinColumn(name="passport_nickname", referencedColumnValue="nickname")
+    // Remember to set UNIQUE constrict in table
+    private Person owner;
+
+}

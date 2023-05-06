@@ -23,6 +23,11 @@ public class Person {
     @NonNull
     private int age;
 
+    @OneToOne(mappedBy = "owner", cascade = CascadeType.PERSIST)
+    @Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE,
+              org.hibernate.annotations.CascadeType.REFRESH})
+    private Passport passport;
+
     @OneToMany(mappedBy = "owner", cascade = CascadeType.PERSIST)
     @Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE,
               org.hibernate.annotations.CascadeType.REFRESH})
@@ -35,7 +40,4 @@ public class Person {
         products.add(product);
         product.setOwner(this);
     }
-
-//    @OneToOne(mappedBy = "owner")
-//    private Passport passport;
 }

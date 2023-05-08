@@ -5,6 +5,7 @@ import lombok.*;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
-public class Person {
+public class Person implements Serializable {
     @Id
     @Column(name = "nickname")
     @NonNull

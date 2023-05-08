@@ -1,5 +1,6 @@
 package Hibernate;
 
+import Hibernate.model.Category;
 import Hibernate.model.Passport;
 import Hibernate.model.Person;
 import Hibernate.model.Product;
@@ -9,7 +10,6 @@ import org.hibernate.cfg.Configuration;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,6 +26,7 @@ public class Main {
                 .addAnnotatedClass(Person.class)
                 .addAnnotatedClass(Product.class)
                 .addAnnotatedClass(Passport.class)
+                .addAnnotatedClass(Category.class)
         ;
 
         SessionFactory sessionFactory = configuration.buildSessionFactory();
@@ -34,12 +35,19 @@ public class Main {
             Session session = sessionFactory.getCurrentSession();
             session.beginTransaction();
 
-            Person person = new Person("John Doe", 22);
-            Passport passport = new Passport(
-                    person, countries.get(ThreadLocalRandom.current().nextInt(countries.size()))
-            );
+//            List<Product> products = session.createQuery("from Product ").getResultList();
+//            List<Category> categories = session.createQuery("from Category ").getResultList();
 
-            session.save(person);
+//            for (Product product : products){
+//                System.out.println(product.getName());
+//                if (product.getCategories().isEmpty()){
+//                    System.out.println("This product doesn't belong to any category\n");
+//                    continue;
+//                }
+//
+//                System.out.printf("Categories: %s%n%n", product.getCategories().stream().map(Category::getName)
+//                        .collect(Collectors.joining(", ")));
+//            }
 
             session.getTransaction().commit();
         }

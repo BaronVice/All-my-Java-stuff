@@ -1,0 +1,28 @@
+@ManyToMany for both relations, and @JoinTable for one of them
+
+Args inside @JoinTable:
+1) name - table name
+2) joinColumns - what columns in join table are related to this class
+3) inverseJoinColumns - what columns in join table are related to other class
+
+
+@Entity
+@Table("Product")
+class Product {
+    ...
+    @ManyToMany(mappedBy="products")
+    private List<Category> categories;
+}
+
+@Entity
+@Table
+class Category {
+    ...
+    @ManyToMany
+    @JoinTable(
+        name = "product_category",
+        joinColumns = @JoinColumn(name="category_name"),
+        inverseJoinColumns = @JoinColumn(name="product_id")
+    )
+    private List<Product> products;
+}

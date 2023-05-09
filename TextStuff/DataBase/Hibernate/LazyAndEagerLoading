@@ -3,6 +3,7 @@ Same principle as for Lazy propagation
 If loading is Eager - after calling for entity we'll also get other related entities
 If loading is Lazy - related entities will be accessed after getter is called
 
+
 Type is defined inside RelationAnnotation (@OneToMany, @ManyToOne, @OneToOne, @ManyToMany) as "fetch" argument:
 
 ...

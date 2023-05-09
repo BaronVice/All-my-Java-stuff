@@ -1,0 +1,43 @@
+Same principle as for Lazy propagation
+
+If loading is Eager - after calling for entity we'll also get other related entities
+If loading is Lazy - related entities will be accessed after getter is called
+
+Type is defined inside RelationAnnotation (@OneToMany, @ManyToOne, @OneToOne, @ManyToMany) as "fetch" argument:
+
+...
+    @OneToMany(mappedBy="foo", fetch=FetchType.EAGER)
+    private List<Bar> bars;
+...
+    @OneToMany(mappedBy="foo", fetch=FetchType.LAZY)
+        private List<Bar> bars;
+...
+
+By default (change if necessary):
+@OneToMany - Lazy, (a lot of objects)
+@ManyToOne - Eager, (only one object)
+@OneToOne - Eager, (only one object)
+@ManyToMany - Lazy (a lot of objects)
+
+* With Lazy approach access to related entities may be taken if entity is in Persistent state
+
+Use Hibernate.initialize(foo.getBars()) if you need to load related entity
+
+- But what if session is closed and we want to load related entity?
+- Open session again, session.merge(foo) and do whatever you whant
+
+...
+    Session session = sessionFactory.getCurrentSession();
+    session.beginTransaction();
+
+    Person person = session.get(Person.class, "John Doe");
+    ...
+    session.getTransaction().commit();
+
+    session = sessionFactory.getCurrentSession();
+    session.beginTransaction();
+
+    person = (Person) session.merge(person);
+    ...
+    session.getTransaction().commit();
+...

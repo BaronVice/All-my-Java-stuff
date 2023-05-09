@@ -23,9 +23,9 @@ By default (change if necessary):
 
 Use Hibernate.initialize(foo.getBars()) if you need to load related entity
 
-- But what if session is closed and we want to load related entity?
-- Open session again, session.merge(foo) and do whatever you whant
 
+- But what if session is closed and we want to load related entity?
+- Open session again, session.merge(foo) and do whatever you want
 ...
     Session session = sessionFactory.getCurrentSession();
     session.beginTransaction();

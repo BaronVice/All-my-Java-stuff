@@ -1,0 +1,14 @@
+There are three types of pattern designs:
+1) Creational - how objects are created
+2) Structural - how objects related to each other
+3) Behavioral - how objects communicate with each other
+
+- Creational
+1) Singleton - can be instantiated only once. After instantiation you can only take a reference on it
+(basically it's something like small fast-food shed with space only for one employee)
+2) Prototype - create multiple instances (create another cashier in market if existed amount is not enough)
+
+Imagine you go to McDuck and there are two options to order a burger
+3) Factory - you don't want to be bothered with creation, so you take a burger from menu.
+The thing is - you don't know the ingredients and to avoid extra sauce
+4) Builder - in that case you want to configure all the stuff by yourself

@@ -1,0 +1,14 @@
+ArrayList is quite same as Vector(Stone Age thing from the end of 20th century)
+
+Why choose one over another?
+1) ArrayList is better at performance (add 10**9 items and you'll get the difference)
+2) Vectors operations are synchronized, but ArrayLists are not (try two threads of adding)
+
+So ArrayList gets this boost from declining synchronization.
+- In case we have multithreading stuff there are three options:
+1) Vector<?> vector = new Vector<>();
+2) List<?> list = new Collections.synchronizedList(new ArrayList());
+3) Use synchronized block or lock on ArrayList operations
+
+- What shall we do with vectors?
+- Use ArrayList

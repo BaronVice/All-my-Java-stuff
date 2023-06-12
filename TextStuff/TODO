@@ -3,7 +3,7 @@
 - Method isSynthetic, isBridge, isDefault, isVarArgs (optional)
 - Delegates in Java
 - Learn some basic design patterns
-- Guava
+- Guava + Apache Commons
 - Docker
 - Watch about advanced annotation creation
 - Redis

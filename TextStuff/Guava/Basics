@@ -1,0 +1,10 @@
+Optional - same idea as java.util.Optional (still, they are different and last is more preferable). Optional removes
+headache of null checkers as well as it makes code more neat
+
+Precondition - more of checkers (conditions, array elements, nulls, etc)
+
+Ordering - wrapper of Comparator or Comparator with extended functionality
+
+Objects - haven't tested it due to its deprecation (same as with Optional - already implemented from Java 8)
+
+

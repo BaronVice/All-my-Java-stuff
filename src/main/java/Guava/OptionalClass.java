@@ -7,15 +7,15 @@ import java.util.Optional;
  * There minor differences between google.base and java.util Optional, but their purpose are the same
 
  * - From guava docs it's more preferable to use Java's Optional - so I'll use java.util.Optional */
-public class OptionalTest {
+public class OptionalClass {
     public static void main(String[] args) {
 
         Optional<Integer> firstNumber = Optional.empty();
         Optional<Integer> secondNumber = Optional.of(123);
 
-        System.out.println(OptionalTest.test(firstNumber));
-        System.out.println(OptionalTest.test(secondNumber));
-        System.out.println(OptionalTest.test(firstNumber, secondNumber));
+        System.out.println(OptionalClass.test(firstNumber));
+        System.out.println(OptionalClass.test(secondNumber));
+        System.out.println(OptionalClass.test(firstNumber, secondNumber));
     }
 
     @SafeVarargs

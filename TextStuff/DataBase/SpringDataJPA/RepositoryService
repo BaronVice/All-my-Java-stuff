@@ -1,0 +1,14 @@
+@Repository - create template of common requests (CRUD and more)
+
+-- DAO vs Repository:
+1) Both are used to handle data
+2) Repository has higher abstraction level than DAO -> Repository is more Business Oriented
+3) Repository is for common requests. DAO is for advanced requests
+
+@Service - handle data when it's taken from DB (in other words - Business Logic)
+
+Before: Controller <-> DAO/Repository
+Now: Controller <-> Service <-> DAO/Repository
+Why?
+- When data is retrieved usually we'd like to manage it somehow (analyze, manipulate, etc). It's not a good choice to
+put it inside controller, as in controller there is only response/request logic.

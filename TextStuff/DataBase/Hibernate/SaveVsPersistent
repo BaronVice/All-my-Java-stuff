@@ -8,3 +8,5 @@ These two methods almost have no difference, but...
 after .persistent() is called
 
 But all other details almost has no difference
+
+* Same thing with sessionFactory and entitySessionFactory

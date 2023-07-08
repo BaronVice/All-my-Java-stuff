@@ -1,0 +1,26 @@
+
+Mostly used technologies for DB management:
+1) Spring Data JPA
+2) ORM (Hibernate)
+- These are high-level abstractions that are frequently used as they contain most common requests
+
+3) JdbcTemplate
+4) JDBC API
+- The last two are for advanced requests
+
+-- Example --
+Hibernate DAO:
+
+@Component
+@AllArgsConstructor(onConstructor = @__(@Autowired))
+public class TeacherDAO {
+    private final SessionFactory sessionFactory;
+
+    // Lot of lines...
+}
+
+Spring Data JPA Repository (kinda DAO):
+
+@Repository
+public interface TeachersRepository extends JpaRepository<Teacher, Integer>{
+}

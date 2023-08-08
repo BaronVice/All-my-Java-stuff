@@ -24,3 +24,8 @@ Spring Data JPA Repository (kinda DAO):
 @Repository
 public interface TeachersRepository extends JpaRepository<Teacher, Integer>{
 }
+
+@Service
+public class TeacherService(){
+    // some code as in dao, but easier
+}

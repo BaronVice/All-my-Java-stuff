@@ -1,0 +1,13 @@
+Why Spring Boot?
+
+Issues of Spring Framework:
+1) A lot of configurations
+2) Dependencies and their conflicts (instead of separate dependencies they all grouped in "starter`")
+3) App compilation and its deploy
+
+Spring Boot - is not "high-level" Spring, but one of its parts (like MVC, Data Jpa, Security, ...)
+
+- Due to high-level abstractions hard-to-remove bugs may appear
+
+@SpringBootApplication - contains annotations to configure everything (@Configuration, @ComponentScan, etc.)
+Should be located in project root

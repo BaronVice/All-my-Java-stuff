@@ -1,0 +1,13 @@
+
+There are more of build-in methods in Data JPA:
+https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference
+
+@Repository
+public interface StudentRepository extends JpaRepository<Student, Integer> {
+
+    // Search for name and order by age
+    List<Student> findByNameOrderByAge(String name);
+
+    // Kinda same as teacher.getStudents();
+    List<Student> findByTeacher(Teacher teacher);
+}

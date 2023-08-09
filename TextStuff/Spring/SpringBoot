@@ -1,4 +1,4 @@
-Why Spring Boot?
+--- Why Spring Boot? ---
 
 Issues of Spring Framework:
 1) A lot of configurations
@@ -11,3 +11,15 @@ Spring Boot - is not "high-level" Spring, but one of its parts (like MVC, Data J
 
 @SpringBootApplication - contains annotations to configure everything (@Configuration, @ComponentScan, etc.)
 Should be located in project root
+
+
+--- How to launch on server? ---
+Another advantage - it has it's own server (no need to launch server and then load .war file)
+- Steps to console launch:
+1) Locate project directory
+2) Build to .jar file with use of maven
+    2.1) If there is no maven on server than in console either "./mvnw package" if it's Linux/MacOS
+    or "mvnw package" in case of Windows
+3) Go to target directory and launch .jar file: java -jar FileName.jar
+
+- Shutdown is Ctrl+C

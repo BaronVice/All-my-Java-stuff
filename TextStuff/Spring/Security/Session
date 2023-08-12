@@ -1,0 +1,11 @@
+HTTP is stateless - it doesn't save data between requests.
+Still, this functionality may come in handy (shopping basket on eshop, authorization, etc).
+! For each user this data should be stored on server. This set of data is called session.
+
+But there are more than one user. How to identify session of any client?
+* With a use of cookies - information that is located on clients browser which is sent every request.
+
+How session work?
+* Client gets from server "JSESSIONID" cookie - unique user id
+* With unique user id server identifies user and its session
+! If browser cookies are deleted then server won't recognize user and its session

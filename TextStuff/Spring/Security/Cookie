@@ -1,0 +1,9 @@
+Cookie - is an entry of two strings (key-value), which is stored on clients browser and is sent to server each request.
+* It also allows to store some data on client side for further identification
+* Server adds new cookies in clients browser or changes ones that are already exist
+! Whenever client makes request - server get its cookies
+
+Cookie structure:
+1) Entry of name-value
+2) Expiration date
+3) Domain, Path (which domain refers, on request to which address should be sent)

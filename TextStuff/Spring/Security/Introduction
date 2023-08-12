@@ -1,0 +1,23 @@
+- Spring Security is used for easier authentication and authorization
+* Authentication - approve that I'm a person with some role
+* Each role is authorized for some set of actions
+
+- How Spring Security is integrated in app?
+* With a use of filters - objects that catch all HTTP requests
+HTTP request -> Security filters -> Spring app
+
+
+
+- It's build this way:
+                                 ------------------------
+Authentication (Credentials) -> | AuthenticationProvider | -> Request to authentication server
+                                |    authentication()    | -> Get principal from DB
+Authentication (Principal)   <- |                        | -> etc.
+                                 ------------------------
+
+* Credentials - data to authenticate (login/password)
+* Principal - data after successful authentication (user data)
+* AuthenticationProvider - an interface to provide authentication
+*
+! Principal data is required for session, so no repeatable authentication needed for next requests.
+Session is valid for a while and after some time authentication is needed again

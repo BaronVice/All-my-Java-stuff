@@ -1,6 +1,0 @@
-REST - is a web-app build pattern
-REST describes how with use of http protocol client should interact with server
-All interactions with server can be described with 4 operations - get, post, patch, delete
-
-So CRUD - is 4 basic functions which are used to work with DB
-REST - pattern of building web-applications, which describes interactions by http protocol, urls, http methods and more.

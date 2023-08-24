@@ -1,0 +1,6 @@
+
+@GeneratedValue(strategy = ...)
+1) AUTO - default value
+2) IDENTITY - autoincrement
+3) SEQUENCE - same as identity but within DB
+4) TABLE - create table at DB, get last value of it and make increment

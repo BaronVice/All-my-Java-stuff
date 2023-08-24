@@ -1,0 +1,10 @@
+
+Spring app is usually used for sending sata, not sending .html pages. This is related to multiple services architecture
+as they communicate with each other by sending data (usually JSON)
+
+App (JS, IOS, Android, Python, ...) (HTTP request)-> Spring App (REST API)
+Spring App (REST API) (Data) -> App (JS, IOS, Android, Python, ...)
+
+Why REST API?
+1) It allows to connect different components (other languages and frameworks)
+2) And so many other services can send requests to our REST service

@@ -1,0 +1,20 @@
+- Jackson is a library that allows to transform JSON to Java object and vice versa
+* Spring Framework uses Jackson by default
+* While converting Jackson depends on getters and setters in class
+
+Example:
+- Java class
+public class Person{
+    private int id;
+    private String name;
+    private int age;
+
+    ... Getters and setters ...
+}
+
+- JSON
+{
+    "id": 1,
+    "name": Sus Amogus,
+    "age": 69
+}

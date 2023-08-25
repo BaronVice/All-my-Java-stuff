@@ -1,0 +1,17 @@
+- How to send enum to Hibernate?
+
+public enum Role{
+    USER, // ordinal: 0, string: USER
+    TUTOR, // ordinal: 1, string: TUTOR
+    ADMIN // ordinal: 2, string ADMIN
+}
+
+public class User{
+    ...
+
+    // Here we should pick an approach to save Enum:
+    // EnumType.ORDINAL (py position in enum) or EnumType.String (by its name)
+    @Enumerated(EnumType.STRING)
+    private Role role
+    ...
+}

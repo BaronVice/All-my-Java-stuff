@@ -1,0 +1,12 @@
+- Task: take all items of given customer
+
+// Naive solution
+...
+Customer customer = session.get(Customer.class, id); // One request
+System.out.println(customer.getItems()); // N requests where N is amount of customers items
+
+// Right version
+Customer customer = session.createQuery(
+    "select p from Person where id=" + id + " left join fetch p.items"
+); // One request
+System.out.println(customer.getItems()); // No requests as items were joined

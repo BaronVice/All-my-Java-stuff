@@ -1,0 +1,8 @@
+Other members of DateTimeFormat.ISO:
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/format/annotation/DateTimeFormat.ISO.html
+
+...
+@Temporal(TemporalType.TIMESTAMP) // What SQL-type is used in DB
+@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) // Also you can set not iso, but a pattern
+private Instant createdAt;
+...

@@ -1,0 +1,20 @@
+ACID is a set of rules to ensure data integrity (e.g. some sort of bank transactions).
+
+Atomicity - to guaranty that each or no operations will be completed.
+* If you've sent some money and something got wrong - no operations should be fixated.
+* Or if it's alright then all operation must be performed.
+Solution: put all actions in transaction - fixate transaction or rollback it.
+
+Consistency - assert that data is changed in accordance with business logic.
+* If balance is positive and money are received then fixate transaction. Otherwise rollback.
+Solution - achieved with foreign keys and other constraints.
+
+Isolation - parallel transactions shall not affect the current one (popular in multi-user systems)
+* I've topped up my account cause its balance is low (let's assume this transaction requires 3 min. to be completed)
+* Now I have enough money to buy a drink
+* And so I buy Sunset Sarsaparilla - second transaction is started and money are written off
+* Something went wrong in the first transaction - rollback happened and now I have a negative balance
+Solution - while transactions proceeds - block data in DB (maybe a record or whole table, block for edit or even read)
+
+Durability - successful transaction should be fixated even if system failure appeared
+* User received a message of successful transaction - the changes must be fixated in DB as well.

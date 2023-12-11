@@ -18,7 +18,7 @@ public class EnumExample {
         System.out.println();
 
         for (Cereals cereal : Cereals.values()){
-            System.out.println(cereal.toString());
+            System.out.println(cereal.ordinal());
         }
 
     }

@@ -1,38 +1,33 @@
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
-import java.time.Instant;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main{
-
-    public static Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args) {
-        var a = new Some(Instant.now());
-        for (int i = 0; i < 100000000; i++) {
-            int b = i * i * i;
+        try{
+            Scanner s = new Scanner(System.in);
+            System.out.print("n: ");
+            int n = s.nextInt();
+
+            double positive = 0;
+            int positiveAmount = 0;
+            double negative = 0;
+            int negativeAmount = 0;
+            System.out.println("Use ',' as decimetre. Otherwise I'll trow input error :(");
+            for (int i = 0; i < n; i++){
+                System.out.printf("s[%d]: ", i);
+                double c = s.nextDouble();
+                if (c < 0) { negative += c; negativeAmount++; }
+                else if (c > 0) { positive += c; positiveAmount++; }
+            }
+
+            positive /= positiveAmount;
+            negative /= negativeAmount;
+
+            System.out.printf("Result: %f", positive * negative);
+        } catch (InputMismatchException e) {
+            System.out.println("Input error");
         }
-        var b = new Some(Instant.now());
-
-        System.out.println(a.instant);
     }
-
 }
 
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
-class Some implements Comparable<Some>{
-    public Instant instant;
 
-
-    @Override
-    public int compareTo(Some o) {
-        if (instant.equals(o.instant)){
-            return 1;
-        }
-        return this.instant.compareTo(o.instant);
-    }
-}

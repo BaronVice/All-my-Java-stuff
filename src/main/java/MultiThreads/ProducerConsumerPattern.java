@@ -5,7 +5,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 public class ProducerConsumerPattern {
-    private static final BlockingQueue<Integer> queue = new ArrayBlockingQueue<>(10);
+    private static final BlockingQueue<Double> queue = new ArrayBlockingQueue<>(3);
 
     public static void main(String[] args) throws InterruptedException {
         Thread thread1 = new Thread(() -> {
@@ -34,10 +34,10 @@ public class ProducerConsumerPattern {
     private static void produce() throws InterruptedException {
         Random random = new Random();
 
-        while (true){
-            Thread.sleep(500);
+        for (int i = 0; i < 1000; i++) {
+            Thread.sleep(30);
             // put в отличие от offer может подождать элемент
-            queue.put(random.nextInt(1000));
+            queue.put(random.nextDouble(0.1, 10) / 3.14);
         }
     }
 

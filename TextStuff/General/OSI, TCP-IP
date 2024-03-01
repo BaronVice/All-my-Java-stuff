@@ -1,0 +1,28 @@
+Open System Interconnection model - describes rules how data is transferred in network
+There are 7 layers of data transfer
+
+--- First three are Media layers: they send info through network with use of its devices ---
+1) Physical layer (Ethernet) - how data is transferred between two physical devices (channel of bits goes through
+optical fiber or something wireless like WI-FI, Bluetooth, 4G etc.).
+2) Data link layer (Ethernet) - here chanel of bits is turned into frame with sender and receiver addresses which later
+are sent by switch. On this layer ARP (Address Resolution Protocol) is actively used for comparing MAC and IP, as well
+as encapsulating and decapsulating data.
+3) Network layer (ICMP) - router gets frame from switch and builds rout to receiver considering potential network
+problems.
+
+--- The rest four are Host layers: used not in network, but devices ---
+4) Transport layer - bridge between Media and Host layers. Its role is to deliver packages. There are two protocols
+of sending packages:
+    TCP - for sensitive data, when losses are unacceptable, packages divided on segments.
+    UDP - usually used for videos, when delay is critical, packages divided on datagrams.
+    * key difference of datagram - it is autonomous each datagram contains headers which are used to reach receiver.
+      Thereby they are independent from network.
+
+5) Session layer - name speaks for itself. Open/close session, provide task synchronization. Implemented in environments
+that imply calculation on multiple devices/OS.
+6) Presentation layer - transforms protocols, data code/decode/encryption (if required).
+7) Application layer - that's a sort of interface for user. It's not about routing or ensure data delivery. But to
+present user the data in required format (HTTP is an example)
+
+TCP/IP is same as OSI, but Session and Presentation layers are encapsulated in Application layer.
+* OSI is a concept, while TCP/IP is a real protocol that is used on practice.

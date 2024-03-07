@@ -1,6 +1,6 @@
 package DesignPatterns.proxy;
 
-import DesignPatterns.proxy.proxyserver.ProxyServer;
+import DesignPatterns.proxy.server.ProxyServer;
 
 import java.util.List;
 

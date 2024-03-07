@@ -1,4 +1,4 @@
-package DesignPatterns.proxy.proxyserver;
+package DesignPatterns.proxy.server;
 
 import DesignPatterns.proxy.Employee;
 import DesignPatterns.proxy.storage.DefaultStorage;
@@ -8,7 +8,10 @@ import DesignPatterns.proxy.storage.IStorage;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class ProxyServer implements IProxyServer, IStorage, Statistics {
+/**
+ * Реализация заместитель
+ */
+public class ProxyServer implements IStorage, Statistics {
     private static final ProxyServer proxyServer = new ProxyServer();
     private final Map<Integer, EmployeeStorage> employeeStorageMap;
 
@@ -57,23 +60,35 @@ public class ProxyServer implements IProxyServer, IStorage, Statistics {
         employeeStorageMap.get(minId).addEmployee(employee);
     }
 
-    @Override
+    /**
+     * Добавить пустое хранилище
+     */
     public void addStorage() {
         EmployeeStorage storage = new DefaultStorage();
         employeeStorageMap.put(storage.getId(), storage);
     }
 
-    @Override
+    /**
+     * Добавить существующее хранилище
+     * @param storage хранилище для добавления
+     */
     public void addStorage(EmployeeStorage storage) {
         employeeStorageMap.put(storage.getId(), storage);
     }
 
-    @Override
+    /**
+     * Получить хранилище работников
+     * @param id id хранилища
+     * @return объект EmployeeStorage или null если не найдено
+     */
     public EmployeeStorage getStorage(int id) {
         return employeeStorageMap.get(id);
     }
 
-    @Override
+    /**
+     * Удалить хранилище. При удалении работники распределяются по другим хранилищам
+     * @param id id хранилища
+     */
     public void removeStorage(int id) {
         EmployeeStorage storage = employeeStorageMap.get(id);
         if (storage == null)

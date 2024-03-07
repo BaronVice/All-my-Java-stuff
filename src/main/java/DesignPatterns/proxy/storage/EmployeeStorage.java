@@ -8,6 +8,9 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Абстракция хранилища работников
+ */
 @Getter
 @Setter
 public abstract class EmployeeStorage implements IStorage {
@@ -29,6 +32,7 @@ public abstract class EmployeeStorage implements IStorage {
     public Employee getEmployee(int id){
         return employeeMap.get(id);
     }
+
 
     @Override
     public void addEmployee(Employee employee){

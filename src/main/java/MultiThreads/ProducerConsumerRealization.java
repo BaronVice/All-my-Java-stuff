@@ -77,7 +77,6 @@ class ProducerConsumerReentrantLock{
             } finally {
                 lock.unlock();
             }
-
         }
     }
 

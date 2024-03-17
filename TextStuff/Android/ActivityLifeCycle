@@ -1,0 +1,13 @@
+Activity starts
+(1) onCreate() -> onStart()
+(2) onStart() -> onResume()
+(3) onResume() -> activity is running
+(4) another activity comes in front on this activity -> onPause()
+    * Other applications need memory -> activity process is killed
+    (4.1) User navigates back, but activity process is killed -> goto (1)
+    (4.2) User navigates back and activity is still alive -> goto (3)
+(5) User exited from app (not closed) -> onStop()
+    * Other applications need memory -> activity process is killed
+    (4.1) User navigates back, but activity process is killed -> goto (1)
+    (4.2) User navigates back and activity is still alive -> onRestart() -> goto (2)
+(6) User closed app -> onDestroy() -> activity is shut down

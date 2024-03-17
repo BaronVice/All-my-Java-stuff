@@ -3,6 +3,7 @@ package DesignPatterns.task.dbms;
 import DesignPatterns.task.Entity;
 import lombok.Getter;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -34,6 +35,11 @@ public class DBMS implements CRUD{
         }
         System.out.println("Port " + port + ": entity requested with id = " + SEQUENCE.get());
         return en;
+    }
+
+    @Override
+    public Collection<Entity> getAll() {
+        return entityMap.values();
     }
 
     @Override

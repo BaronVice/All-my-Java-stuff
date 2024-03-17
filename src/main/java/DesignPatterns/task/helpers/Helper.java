@@ -5,6 +5,8 @@ import DesignPatterns.task.dbms.DBMS;
 import DesignPatterns.task.documenttools.DocumentFactory;
 import DesignPatterns.task.documenttools.IDocument;
 
+import java.util.Collection;
+
 public abstract class Helper implements IHelper {
     private final DBMS dbms;
     private final IDocument html;
@@ -39,6 +41,11 @@ public abstract class Helper implements IHelper {
     @Override
     public Entity get(int id) {
         return dbms.get(id);
+    }
+
+    @Override
+    public Collection<Entity> getAll(){
+        return dbms.getAll();
     }
 
     @Override

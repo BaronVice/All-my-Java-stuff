@@ -16,17 +16,17 @@ public class Main {
         );
         employeeList.forEach(proxyServer::addEmployee);
 
-//        System.out.println(proxyServer.averageSalary());
-//
-//        proxyServer.addEmployee(new Employee("Aron", 33333));
-//        System.out.println(proxyServer.averageSalary());
-//
-//        proxyServer.deleteEmployee(0);
-//        proxyServer.deleteEmployee(1);
-//        proxyServer.deleteEmployee(3);
-//        System.out.println(proxyServer.averageSalary());
-//
-//        System.out.println(proxyServer.getEmployee(4));
+        System.out.println(proxyServer.averageSalary());
+
+        proxyServer.addEmployee(new Employee("Aron", 33333));
+        System.out.println(proxyServer.averageSalary());
+
+        proxyServer.deleteEmployee(0);
+        proxyServer.deleteEmployee(1);
+        proxyServer.deleteEmployee(3);
+        System.out.println(proxyServer.averageSalary());
+
+        System.out.println(proxyServer.getEmployee(4));
 
         System.out.println(proxyServer.averageSalary());
         System.out.println(proxyServer.getStorage(0) != null);

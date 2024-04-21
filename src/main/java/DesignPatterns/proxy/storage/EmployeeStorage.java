@@ -33,7 +33,6 @@ public abstract class EmployeeStorage implements IStorage {
         return employeeMap.get(id);
     }
 
-
     @Override
     public void addEmployee(Employee employee){
         employeeMap.put(employee.getId(), employee);

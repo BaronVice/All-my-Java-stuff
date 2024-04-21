@@ -1,14 +1,12 @@
 package DesignPatterns.task.dbms;
 
 import DesignPatterns.task.Entity;
-import lombok.Getter;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@Getter
 public class DBMS implements CRUD{
     private static final AtomicInteger SEQUENCE = new AtomicInteger(0);
     private final Map<Integer, Entity> entityMap;
@@ -58,5 +56,13 @@ public class DBMS implements CRUD{
     public void delete(int id) {
         entityMap.remove(id);
         System.out.println("Port " + port + ": entity removed with id = " + SEQUENCE.get());
+    }
+
+    public Map<Integer, Entity> getEntityMap() {
+        return this.entityMap;
+    }
+
+    public int getPort() {
+        return this.port;
     }
 }
